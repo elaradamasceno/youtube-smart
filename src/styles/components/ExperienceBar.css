@@ -1,0 +1,18 @@
+.experience-bar{
+    display: grid;
+}
+
+/* .experience-bar .i-area-user,
+.experience-bar .i-search > svg,
+.experience-bar .i-home > svg,
+.experience-bar .i-favorites > svg{
+    font-size: var(--size-icons);
+    cursor: pointer;
+}
+
+.experience-bar .i-area-user,
+.experience-bar .i-search,
+.experience-bar .i-home,
+.experience-bar .i-favorites{
+    padding: 0 0.5rem 1rem ;
+} */
