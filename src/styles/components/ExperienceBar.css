@@ -1,18 +1,27 @@
+
 .experience-bar{
-    display: grid;
+    border-right: 1px solid var(--white);
 }
 
-/* .experience-bar .i-area-user,
-.experience-bar .i-search > svg,
-.experience-bar .i-home > svg,
-.experience-bar .i-favorites > svg{
-    font-size: var(--size-icons);
-    cursor: pointer;
+.experience-bar > div{
+    display: flex;
+    justify-content: center;
 }
 
 .experience-bar .i-area-user,
 .experience-bar .i-search,
 .experience-bar .i-home,
 .experience-bar .i-favorites{
-    padding: 0 0.5rem 1rem ;
-} */
+    font-size: var(--size-icons);
+    cursor: pointer;
+    color: var(--white);
+    padding-bottom: 1rem;
+    text-decoration: none;
+}
+
+.experience-bar .i-area-user:hover,
+.experience-bar .i-search:hover,
+.experience-bar .i-home:hover,
+.experience-bar .i-favorites:hover{
+    color: var(--gray);
+}

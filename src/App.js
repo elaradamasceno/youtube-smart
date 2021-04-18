@@ -7,35 +7,40 @@ import { AreaUser } from './pages/AreaUser';
 import { Search } from './pages/Search';
 import { Favorites } from './pages/Favorites';
 import { Page404 } from './pages/Page404';
+import { Login } from './pages/Login';
 
 
 function App() {
   return (
     <div className="container">
-      <Router>
-        <ExperienceBar/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+        <Router>
+            <ExperienceBar/>
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
 
-          <Route path="/area-user">
-            <AreaUser />
-          </Route>
+                <Route path="/area-user">
+                    <AreaUser />
+                </Route>
 
-          <Route path="/search">
-            <Search />
-          </Route>
+                <Route path="/search">
+                    <Search />
+                </Route>
 
-          <Route path="/favorites">
-            <Favorites />
-          </Route>
+                <Route path="/favorites">
+                    <Favorites />
+                </Route>
 
-          <Route>
-            <Page404/>
-          </Route>
-        </Switch>
-      </Router>
+                <Route path="/Login">
+                    <Login />
+                </Route>
+
+                <Route>
+                    <Page404/>
+                </Route>
+            </Switch>
+        </Router>
     </div>
   );
 }
