@@ -23,18 +23,18 @@ export function ExperienceBar(){
 
                 <div className="content-icons">
                     { userLogged ? (
-                        <Link to="area-user" tabIndex="2">
+                        <Link to="area-user" tabIndex="1">
                             Elara
                         </Link>
                     ): (
-                        <Link to="Login" className="i-area-user" tabIndex="2">
+                        <Link to="Login" className="i-area-user" tabIndex="1">
                             <UserOutlined />
                         </Link>
                     )}
                 </div>
 
                 <div className="content-icons">
-                    <Link tabIndex="1" to="/" className="i-home">
+                    <Link tabIndex="2" to="/" className="i-home">
                         <HomeOutlined />
                     </Link>
                 </div>

@@ -1,9 +1,10 @@
 
 .experience-bar{
+    background: var(--background-side-bar);
+    box-shadow: 2px 0px 8px var(--black);
+
     display: flex;
     justify-content: center;
-    border-right: 1px solid var(--gray-silver);
-
     padding-top: 2rem;
 }
 
@@ -19,6 +20,8 @@
 }
 
 .experience-bar .content-icons{
+    display: flex;
+    justify-content: center;
     margin-bottom: 2rem;
 }
 

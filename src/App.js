@@ -12,34 +12,36 @@ import { Login } from './pages/Login';
 
 function App() {
   return (
-    <div className="container">
+    <div className="App">
         <Router>
             <ExperienceBar/>
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
+            <div className="container">
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
 
-                <Route path="/area-user">
-                    <AreaUser />
-                </Route>
+                    <Route path="/area-user">
+                        <AreaUser />
+                    </Route>
 
-                <Route path="/search">
-                    <Search />
-                </Route>
+                    <Route path="/search">
+                        <Search />
+                    </Route>
 
-                <Route path="/favorites">
-                    <Favorites />
-                </Route>
+                    <Route path="/favorites">
+                        <Favorites />
+                    </Route>
 
-                <Route path="/Login">
-                    <Login />
-                </Route>
+                    <Route path="/Login">
+                        <Login />
+                    </Route>
 
-                <Route>
-                    <Page404/>
-                </Route>
-            </Switch>
+                    <Route>
+                        <Page404/>
+                    </Route>
+                </Switch>
+            </div>
         </Router>
     </div>
   );
