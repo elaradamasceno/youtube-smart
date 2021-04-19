@@ -9,10 +9,7 @@ import '../styles/components/Login.css';
 export function Login(){
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [ fieldId, setFieldId] = useState('');
-
-    function validateKeyboard(){
-        console.log('clicou')
-    }
+    const [ username, setUserName ] = useState('');
 
     function fieldFocus(id){
         setFieldId(id);
@@ -25,7 +22,6 @@ export function Login(){
         let pos = element.selectionStart;
         element.value = val.substr(0, pos) + data + val.substr(pos);
     }
-
 
     return(
         <div className="login">
@@ -41,6 +37,7 @@ export function Login(){
                         label="Nome"
                         name="name"
                         size="middle"
+                        value={username}
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
                     >

@@ -6,7 +6,7 @@ export function Keyboard({getKeys}){
     const [selectValue, setSelectValue] = useState('');
 
     function clickKeyboard(){
-        let keys = document.querySelectorAll('#keyboard .keys span');
+        let keys = document.querySelectorAll('#keyboard .keys button');
 
         keys.forEach(k => 
             k.addEventListener("click", (e) => {
@@ -15,42 +15,49 @@ export function Keyboard({getKeys}){
         )
     }
 
+    function focusButton(){
+        document.getElementById('initial-button').focus();
+    }
+
     useEffect(() => {
         clickKeyboard();
         getKeys(selectValue);
     });
 
+    useEffect(() => {
+        focusButton();
+    }, [])
 
     return(
         <div id="keyboard">
             <div className="keys">
-                <span>A</span>
-                <span>B</span>
-                <span>C</span>
-                <span>D</span>
-                <span>E</span>
-                <span>F</span>
-                <span>G</span>
-                <span>H</span>
-                <span>I</span>
-                <span>J</span>
-                <span>K</span>
-                <span>L</span>
-                <span>M</span>
-                <span>N</span>
-                <span>O</span>
-                <span>P</span>
-                <span>Q</span>
-                <span>R</span>
-                <span>S</span>
-                <span>T</span>
-                <span>U</span>
-                <span>V</span>
-                <span>W</span>
-                <span>X</span>
-                <span>Y</span>
-                <span>Z</span>
-                <span>-</span>
+                <button id="initial-button" tabIndex="1">A</button>
+                <button tabIndex="1">B</button>
+                <button tabIndex="1">C</button>
+                <button tabIndex="1">D</button>
+                <button tabIndex="1">E</button>
+                <button tabIndex="1">F</button>
+                <button tabIndex="1">G</button>
+                <button tabIndex="1">H</button>
+                <button tabIndex="1">I</button>
+                <button tabIndex="1">J</button>
+                <button tabIndex="1">K</button>
+                <button tabIndex="1">L</button>
+                <button tabIndex="1">M</button>
+                <button tabIndex="1">N</button>
+                <button tabIndex="1">O</button>
+                <button tabIndex="1">P</button>
+                <button tabIndex="1">Q</button>
+                <button tabIndex="1">R</button>
+                <button tabIndex="1">S</button>
+                <button tabIndex="1">T</button>
+                <button tabIndex="1">U</button>
+                <button tabIndex="1">V</button>
+                <button tabIndex="1">W</button>
+                <button tabIndex="1">X</button>
+                <button tabIndex="1">Y</button>
+                <button tabIndex="1">Z</button>
+                <button tabIndex="1">-</button>
             </div>
         </div>
     )

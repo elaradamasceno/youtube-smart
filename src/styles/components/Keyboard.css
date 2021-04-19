@@ -1,4 +1,4 @@
-#keyboard .keys span {
+#keyboard .keys button {
 	background: var(--background-side-bar);
 	color: var(--gray-silver);
 
