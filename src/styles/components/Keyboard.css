@@ -1,0 +1,16 @@
+#keyboard .keys span {
+	background: var(--background-side-bar);
+	color: var(--gray-silver);
+
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+
+	font-size: 1.25rem;
+	width: 3.375rem;
+	height: 2.375rem;
+	border-radius: 0.3125rem;
+	margin: 0 0.5rem 0.75rem 0;
+	line-height: 40px;
+}

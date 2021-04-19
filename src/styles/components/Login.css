@@ -1,0 +1,36 @@
+.login .content-login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 7rem 0 7rem;
+}
+
+.login > h2{
+    color: var(--gray-silve);
+    font-size: 1.5rem;
+}
+
+.ant-form-item-label > label{
+    color: var(--gray-silver);
+}
+
+.ant-form-item-control-input-content{
+    border-bottom: 1px solid var(--gray-silver);
+}
+
+.ant-input-affix-wrapper,
+.ant-input{
+    background: transparent;
+    border: none;
+    color: var(--gray-silver);
+}
+
+.ant-input-password-icon{
+    color: var(--gray-silver);
+}
+
+.ant-input:focus, .ant-input-focused,
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused{
+    border: none;
+    box-shadow: none;
+}
