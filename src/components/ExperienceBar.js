@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faSearch, faHome, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { UserOutlined, SearchOutlined, HomeOutlined, HeartOutlined, YoutubeOutlined} from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 import '../styles/components/ExperienceBar.css';
@@ -21,33 +19,37 @@ export function ExperienceBar(){
     return(
         <div className="experience-bar">
             <div>
-                { userLogged ? (
-                    <Link to="area-user">
-                        Elara
+                <YoutubeOutlined className="i-youtube" />
+
+                <div className="content-icons">
+                    { userLogged ? (
+                        <Link to="area-user" tabIndex="2">
+                            Elara
+                        </Link>
+                    ): (
+                        <Link to="Login" className="i-area-user" tabIndex="2">
+                            <UserOutlined />
+                        </Link>
+                    )}
+                </div>
+
+                <div className="content-icons">
+                    <Link tabIndex="1" to="/" className="i-home">
+                        <HomeOutlined />
                     </Link>
-                ): (
-                    <Link to="Login" className="i-area-user">
-                        <FontAwesomeIcon icon={faUserCircle} />
+                </div>
+
+                <div className="content-icons">
+                    <Link to="search" className="i-search" tabIndex="3">
+                        <SearchOutlined />
                     </Link>
-                )}
-            </div>
+                </div>
 
-            <div>
-                <Link to="search" className="i-search">
-                    <FontAwesomeIcon icon={faSearch} />
-                </Link>
-            </div>
-
-            <div>
-                <Link to="/" className="i-home">
-                    <FontAwesomeIcon icon={faHome} />
-                </Link>
-            </div>
-
-            <div>
-                <Link to="favorites" className="i-favorites">
-                    <FontAwesomeIcon icon={faHeart} />
-                </Link>
+                <div className="content-icons">
+                    <Link to="favorites" className="i-favorites" tabIndex="4">
+                        <HeartOutlined />
+                    </Link>
+                </div>
             </div>
         </div>
     )

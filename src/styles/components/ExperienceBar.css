@@ -1,11 +1,25 @@
 
 .experience-bar{
-    border-right: 1px solid var(--white);
-}
-
-.experience-bar > div{
     display: flex;
     justify-content: center;
+    border-right: 1px solid var(--gray-silver);
+
+    padding-top: 2rem;
+}
+
+/* .experience-bar > div{
+    display: flex;
+    justify-content: center;
+} */
+.experience-bar .i-youtube{
+    color: var(--red);
+    font-size: 3rem;
+    padding-bottom: 4rem;
+    text-decoration: none;
+}
+
+.experience-bar .content-icons{
+    margin-bottom: 2rem;
 }
 
 .experience-bar .i-area-user,
@@ -13,15 +27,20 @@
 .experience-bar .i-home,
 .experience-bar .i-favorites{
     font-size: var(--size-icons);
+    color: var(--gray-silver);
     cursor: pointer;
-    color: var(--white);
-    padding-bottom: 1rem;
     text-decoration: none;
 }
 
 .experience-bar .i-area-user:hover,
 .experience-bar .i-search:hover,
 .experience-bar .i-home:hover,
-.experience-bar .i-favorites:hover{
+.experience-bar .i-favorites:hover,
+.experience-bar .i-area-user:focus-visible,
+.experience-bar .i-search:focus-visible,
+.experience-bar .i-home:focus-visible,
+.experience-bar .i-favorites:focus-visible{
     color: var(--gray);
+    border: none;
+    outline: none;
 }
