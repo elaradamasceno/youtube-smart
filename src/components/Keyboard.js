@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export function Keyboard({getKeys}){
     const [selectValue, setSelectValue] = useState('');
+    const allLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
 
     function clickKeyboard(){
         let keys = document.querySelectorAll('#keyboard .keys button');
@@ -16,7 +17,7 @@ export function Keyboard({getKeys}){
     }
 
     function focusButton(){
-        document.getElementById('initial-button').focus();
+        // document.getElementById('initial-button').focus();
     }
 
     useEffect(() => {
@@ -31,33 +32,9 @@ export function Keyboard({getKeys}){
     return(
         <div id="keyboard">
             <div className="keys">
-                <button id="initial-button" tabIndex="1">A</button>
-                <button tabIndex="1">B</button>
-                <button tabIndex="1">C</button>
-                <button tabIndex="1">D</button>
-                <button tabIndex="1">E</button>
-                <button tabIndex="1">F</button>
-                <button tabIndex="1">G</button>
-                <button tabIndex="1">H</button>
-                <button tabIndex="1">I</button>
-                <button tabIndex="1">J</button>
-                <button tabIndex="1">K</button>
-                <button tabIndex="1">L</button>
-                <button tabIndex="1">M</button>
-                <button tabIndex="1">N</button>
-                <button tabIndex="1">O</button>
-                <button tabIndex="1">P</button>
-                <button tabIndex="1">Q</button>
-                <button tabIndex="1">R</button>
-                <button tabIndex="1">S</button>
-                <button tabIndex="1">T</button>
-                <button tabIndex="1">U</button>
-                <button tabIndex="1">V</button>
-                <button tabIndex="1">W</button>
-                <button tabIndex="1">X</button>
-                <button tabIndex="1">Y</button>
-                <button tabIndex="1">Z</button>
-                <button tabIndex="1">-</button>
+                {allLetters.map((letter, index) => (
+                    <button className="button-letter" key={index} tabIndex={1}>{letter}</button>
+                ))}
             </div>
         </div>
     )
