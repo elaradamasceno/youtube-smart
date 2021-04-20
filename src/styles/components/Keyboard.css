@@ -17,12 +17,9 @@
 	border-radius: 0.3125rem;
 	margin: 0 0.5rem 0.75rem 0;
 	line-height: 40px;
+	transition: background-color 0.8s;
 }
 
-#keyboard .letters a:focus,
-#keyboard .letters a:hover{
-	/* background: ; */
-}
 
 #keyboard #special-characters{
 	font-size: 0.75rem;
@@ -34,8 +31,11 @@
 	border: none;
 	margin-right: 1.5rem;
 	margin-top: 0.5rem;
+	transition: background-color 0.8s;
 }
 
+#keyboard .letters a:focus,
+#keyboard .letters a:hover,
 .buttons-keyboard:hover,
 .buttons-keyboard:focus{
 	background: var(--gray-silver);

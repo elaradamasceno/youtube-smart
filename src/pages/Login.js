@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button} from 'antd';
 
 import { Keyboard } from  '../components/Keyboard';
-
-import ImageLogin from '../images/img-login.png';
 import '../styles/components/Login.css';
 
 
@@ -23,6 +21,7 @@ export function Login(){
 
     function getLetters(data){
         let element = document.getElementById(`basic_${fieldId}`);
+        console.log(fieldId)
         if(fieldId === 'name'){
             valueName = valueName + data;
             element.value = valueName;
@@ -62,6 +61,7 @@ export function Login(){
                     name="basic"
                     initialValues={{ remember: true }}
                     autoComplete="off"
+                    onSubmitCapture={() => {console.log('opaa')}}
                 >
                     <Form.Item
                         id="name"
@@ -70,7 +70,6 @@ export function Login(){
                         size="middle"
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
-                        onInput={onChange}
                     >   
                         <Input className="navigation" />
                     </Form.Item>
@@ -98,7 +97,12 @@ export function Login(){
 
                     <Form.Item>
                         <div className="buttons-login">
-                            <Button id="btn-login-submit" className="navigation" type="primary" htmlType="submit">
+                            <Button 
+                                id="btn-login-submit" 
+                                className="navigation" 
+                                type="primary" 
+                                htmlType="submit"
+                            >
                                 Entrar
                             </Button>
                         </div>
