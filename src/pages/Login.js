@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input} from 'antd';
+import { Form, Input, Button} from 'antd';
 
 import { Keyboard } from  '../components/Keyboard';
 
@@ -10,6 +10,7 @@ export function Login(){
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [ fieldId, setFieldId] = useState('');
     const [ username, setUserName ] = useState('');
+    const teste = '';
 
     function fieldFocus(id){
         setFieldId(id);
@@ -22,6 +23,7 @@ export function Login(){
         let val = element.value;
         let pos = element.selectionStart;
         element.value = val.substr(0, pos) + data + val.substr(pos);
+        element.setSelectionRange(pos+1, pos+1);
     }
 
     return(
@@ -41,7 +43,7 @@ export function Login(){
                         value={username}
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
-                    >
+                    >   
                         <Input />
                     </Form.Item>
 
@@ -68,7 +70,7 @@ export function Login(){
                 </Form>
                 { visibleKeyboard &&
                     <Keyboard getLetters={getLetters}/>
-                }
+                }  
             </div>
 
 

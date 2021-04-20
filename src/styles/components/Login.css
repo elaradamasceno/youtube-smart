@@ -19,7 +19,11 @@
 }
 
 .ant-input-affix-wrapper,
-.ant-input{
+.ant-input,
+.ant-form-item-has-error .ant-input, 
+.ant-form-item-has-error .ant-input-affix-wrapper, 
+.ant-form-item-has-error .ant-input:hover, 
+.ant-form-item-has-error .ant-input-affix-wrapper:hover{
     background: transparent;
     border: none;
     color: var(--gray-silver);

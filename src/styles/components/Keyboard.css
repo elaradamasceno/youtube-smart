@@ -18,3 +18,23 @@
 	margin: 0 0.5rem 0.75rem 0;
 	line-height: 40px;
 }
+
+#keyboard #special-characters{
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+
+.ant-btn-primary{
+	background: var(--background-button);
+	border: none;
+	margin-right: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus{
+	background: var(--gray-silver);
+	border: none;
+	color: #1C1C1C;
+	font-weight: bold;
+}
