@@ -3,7 +3,7 @@ import '../styles/components/Keyboard.css';
 import React, { useState, useEffect } from 'react';
 import { Button} from 'antd';
 
-export function Keyboard({getLetters, clearLetter}){
+export function Keyboard({getLetters, clearLetter, typeScreen}){
     const allLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-'];
     const otherCharacters = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '&', '#', '@', '(', ')', '!', '?', ':', '.', '"'];
     const [visibleLetters, setVisibleLetters ] = useState(true);
@@ -50,10 +50,12 @@ export function Keyboard({getLetters, clearLetter}){
                 )))}
             </div>
             <div className="buttons">
-                <Button type="primary" onClick={actionSpace}>Espaço</Button>
-                <Button type="primary" onClick={actionClear}>Limpar</Button>
-                <Button type="primary">Pesquisar</Button>
-                <Button id="special-characters" type="primary" shape="circle" size="large" onClick={displayOtherCharacters}>
+                <Button className="buttons-keyboard" type="primary" onClick={actionSpace}>Espaço</Button>
+                <Button className="buttons-keyboard" type="primary" onClick={actionClear}>Limpar</Button>
+                { typeScreen !== 'login' && 
+                    <Button className="buttons-keyboard" type="primary">Pesquisar</Button>
+                }
+                <Button className="buttons-keyboard" id="special-characters" type="primary" shape="circle" size="large" onClick={displayOtherCharacters}>
                     {visibleLetters ? '&123' : 'ABC'}
                 </Button>
             </div>

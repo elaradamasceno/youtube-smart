@@ -70,9 +70,17 @@ export function Login(){
                     >
                         <Input.Password />
                     </Form.Item>
+
+                    <Form.Item>
+                        <div className="buttons-login">
+                            <Button id="btn-login-submit" type="primary" htmlType="submit">
+                                Entrar
+                            </Button>
+                        </div>
+                    </Form.Item>
                 </Form>
                 { visibleKeyboard &&
-                    <Keyboard getLetters={getLetters} clearLetter={clearLetter} />
+                    <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
                 }  
             </div>
 

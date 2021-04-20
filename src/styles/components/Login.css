@@ -7,14 +7,38 @@
 
 .login > h2{
     color: var(--gray-silve);
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+.login #btn-login-submit span{
+    border: none;
+    color: var(--gray-silver);
+}
+
+.login #btn-login-submit {
+    background: var(--red);
+    border: none;
+    box-shadow: none;
+}
+
+.login #btn-login-submit:hover,
+.login #btn-login-submit:focus{
+    background: #8B0000;  
+    font-weight: bold;
+}
+
+
+.login .buttons-login{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .ant-form-item-label > label{
     color: var(--gray-silver);
 }
 
-.ant-form-item-control-input-content{
+.ant-form-item-control-input-content input,
+.ant-form-item-control-input-content span:first-child{
     border-bottom: 1px solid var(--gray-silver);
 }
 
@@ -27,14 +51,22 @@
     background: transparent;
     border: none;
     color: var(--gray-silver);
+    border-bottom: 1px solid;
+    border-color: var(--gray-silver);
 }
 
 .ant-input-password-icon{
     color: var(--gray-silver);
 }
 
-.ant-input:focus, .ant-input-focused,
-.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused{
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover,
+.ant-input:hover,
+.ant-input:focus, 
+.ant-input-focused,
+.ant-input-affix-wrapper:focus, 
+.ant-input-affix-wrapper-focused{
     border: none;
     box-shadow: none;
+    border-bottom: 1px solid;
+    border-color: var(--gray-silver);
 }

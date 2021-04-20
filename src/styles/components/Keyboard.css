@@ -24,15 +24,15 @@
 	font-weight: bold;
 }
 
-.ant-btn-primary{
+.buttons-keyboard{
 	background: var(--background-button);
 	border: none;
 	margin-right: 1.5rem;
 	margin-top: 0.5rem;
 }
 
-.ant-btn-primary:hover,
-.ant-btn-primary:focus{
+.buttons-keyboard:hover,
+.buttons-keyboard:focus{
 	background: var(--gray-silver);
 	border: none;
 	color: #1C1C1C;
