@@ -34,7 +34,7 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
 
     useEffect(() => {
         clickKeyboard();
-    }, []);
+    });
 
     return(
         <div id="keyboard">

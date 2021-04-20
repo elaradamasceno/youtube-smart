@@ -9,6 +9,9 @@ import '../styles/components/Login.css';
 
 export function Login(){
     let valueName = '';
+    let valueMail = '';
+    let valuePassword = '';
+
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [ fieldId, setFieldId] = useState('');
     const [ username, setUserName ] = useState('');
@@ -20,8 +23,20 @@ export function Login(){
 
     function getLetters(data){
         let element = document.getElementById(`basic_${fieldId}`);
-        valueName = valueName + data;
-        element.value = valueName;
+        if(fieldId === 'name'){
+            valueName = valueName + data;
+            element.value = valueName;
+        }
+
+        if(fieldId === 'mail'){
+            valueMail = valueMail + data;
+            element.value = valueMail;
+        }
+
+        if(fieldId === 'password'){
+            valuePassword = valuePassword + data;
+            element.value = valuePassword;
+        }
     }
 
     function clearLetter(data){ 
