@@ -7,7 +7,6 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
     const allLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-'];
     const otherCharacters = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '&', '#', '@', '(', ')', '!', '?', ':', '.', '"'];
     const [visibleLetters, setVisibleLetters ] = useState(true);
-    const [selectValue, setSelectValue] = useState('');
     let clear = 0;
 
     function clickKeyboard(){
@@ -16,7 +15,6 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
         letters.forEach(letter => 
             letter.addEventListener("click", (e) => {
                 getLetters(e.target.textContent);
-                // setSelectValue(e.target.textContent);
             })
         )
     }
@@ -36,7 +34,6 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
 
     useEffect(() => {
         clickKeyboard();
-        // getLetters(selectValue);
     }, []);
 
     return(

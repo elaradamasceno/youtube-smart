@@ -37,8 +37,6 @@ export function Login(){
         console.log('opa')   
     }, []);
 
-    
-
 
     return(
         <div className="login">
