@@ -1,4 +1,4 @@
-#keyboard .keys button {
+#keyboard .letters a {
 	background: var(--background-side-bar);
 	color: var(--gray-silver);
 

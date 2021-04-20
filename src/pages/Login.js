@@ -16,7 +16,7 @@ export function Login(){
         setVisibleKeyboard(true);
     }
 
-    function getKeys(data){
+    function getLetters(data){
         let element = document.getElementById(`basic_${fieldId}`);
         let val = element.value;
         let pos = element.selectionStart;
@@ -37,7 +37,6 @@ export function Login(){
                         label="Nome"
                         name="name"
                         size="middle"
-                        value={username}
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
                     >
@@ -66,7 +65,7 @@ export function Login(){
                     </Form.Item>
                 </Form>
                 { visibleKeyboard &&
-                    <Keyboard getKeys={getKeys}/>
+                    <Keyboard getLetters={getLetters}/>
                 }
             </div>
 

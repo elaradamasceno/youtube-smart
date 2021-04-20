@@ -2,40 +2,33 @@ import '../styles/components/Keyboard.css';
 
 import React, { useState, useEffect } from 'react';
 
-export function Keyboard({getKeys}){
-    const [selectValue, setSelectValue] = useState('');
+export function Keyboard({getLetters}){
     const allLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-']
+    const [selectValue, setSelectValue] = useState('');
 
     function clickKeyboard(){
-        let keys = document.querySelectorAll('#keyboard .keys button');
+        let letters = document.querySelectorAll('#keyboard .letters a');
 
-        keys.forEach(k => 
-            k.addEventListener("click", (e) => {
+        letters.forEach(letter => 
+            letter.addEventListener("click", (e) => {
                 setSelectValue(e.target.textContent);
             })
         )
     }
 
-    function focusButton(){
-        // document.getElementById('initial-button').focus();
-    }
-
     useEffect(() => {
         clickKeyboard();
-        getKeys(selectValue);
+        getLetters(selectValue);
     });
 
-    useEffect(() => {
-        focusButton();
-    }, [])
 
     return(
         <div id="keyboard">
-            <div className="keys">
+            <div className="letters">
                 {allLetters.map((letter, index) => (
-                    <button className="button-letter" key={index} tabIndex={1}>{letter}</button>
+                    <a className="button-letter" key={index} tabIndex={1}>{letter}</a>
                 ))}
             </div>
         </div>
     )
-}
+} 
