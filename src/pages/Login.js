@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Button} from 'antd';
 
 import { Keyboard } from  '../components/Keyboard';
@@ -10,12 +10,11 @@ export function Login(){
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [ fieldId, setFieldId] = useState('');
     const [ username, setUserName ] = useState('');
-    const teste = '';
+    let valueName = '';
 
     function fieldFocus(id){
         setFieldId(id);
         setVisibleKeyboard(true);
-        // setUserName()
     }
 
     function getLetters(data){
@@ -23,7 +22,12 @@ export function Login(){
         let val = element.value;
         let pos = element.selectionStart;
         element.value = val.substr(0, pos) + data + val.substr(pos);
-        element.setSelectionRange(pos+1, pos+1);
+        valueName = element.value;
+    }
+
+    function clearLetter(data){ 
+        let element = document.getElementById(`basic_${fieldId}`);
+        element.value = valueName.slice(0, -data);
     }
 
     return(
@@ -40,7 +44,6 @@ export function Login(){
                         label="Nome"
                         name="name"
                         size="middle"
-                        value={username}
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
                     >   
@@ -69,7 +72,7 @@ export function Login(){
                     </Form.Item>
                 </Form>
                 { visibleKeyboard &&
-                    <Keyboard getLetters={getLetters}/>
+                    <Keyboard getLetters={getLetters} clearLetter={clearLetter} />
                 }  
             </div>
 
