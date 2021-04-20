@@ -15,13 +15,14 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
 
         letters.forEach(letter => 
             letter.addEventListener("click", (e) => {
-                setSelectValue(e.target.textContent);
+                getLetters(e.target.textContent);
+                // setSelectValue(e.target.textContent);
             })
         )
     }
 
     function actionSpace(){
-        setSelectValue(' ');
+        getLetters(' ');
     }
 
     function actionClear(){
@@ -35,27 +36,33 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
 
     useEffect(() => {
         clickKeyboard();
-        getLetters(selectValue);
-    });
-
+        // getLetters(selectValue);
+    }, []);
 
     return(
         <div id="keyboard">
             <div className="letters">
                 { visibleLetters ? allLetters.map((letter, index) => (
-                    <a className="button-letter" key={index} tabIndex={1}>{letter}</a>
+                    <a className="button-letter navigation" key={index} tabIndex={1}>{letter}</a>
                 )) : (
                     otherCharacters.map((character, index) => (
-                        <a className="button-letter" key={index} tabIndex={1}>{character}</a>
+                        <a className="button-letter navigation" key={index} tabIndex={1}>{character}</a>
                 )))}
             </div>
             <div className="buttons">
-                <Button className="buttons-keyboard" type="primary" onClick={actionSpace}>Espaço</Button>
-                <Button className="buttons-keyboard" type="primary" onClick={actionClear}>Limpar</Button>
+                <Button className="buttons-keyboard navigation" type="primary" onClick={actionSpace}>Espaço</Button>
+                <Button className="buttons-keyboard navigation" type="primary" onClick={actionClear}>Limpar</Button>
                 { typeScreen !== 'login' && 
-                    <Button className="buttons-keyboard" type="primary">Pesquisar</Button>
+                    <Button className="buttons-keyboard navigation" type="primary">Pesquisar</Button>
                 }
-                <Button className="buttons-keyboard" id="special-characters" type="primary" shape="circle" size="large" onClick={displayOtherCharacters}>
+                <Button 
+                    className="buttons-keyboard navigation" 
+                    id="special-characters" 
+                    type="primary" 
+                    shape="circle" 
+                    size="large" 
+                    onClick={displayOtherCharacters}
+                >
                     {visibleLetters ? '&123' : 'ABC'}
                 </Button>
             </div>

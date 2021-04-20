@@ -2,16 +2,13 @@
 .experience-bar{
     background: var(--background-side-bar);
     box-shadow: 2px 0px 8px var(--black);
-
-    display: flex;
-    justify-content: center;
     padding-top: 2rem;
 }
 
-/* .experience-bar > div{
-    display: flex;
-    justify-content: center;
-} */
+.experience-bar div:first-child{
+    display: grid;
+}
+
 .experience-bar .i-youtube{
     color: var(--red);
     font-size: 3rem;
@@ -19,10 +16,12 @@
     text-decoration: none;
 }
 
-.experience-bar .content-icons{
+.experience-bar .experience-icons{
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    height: 3.75rem;
+    align-items: center;
 }
 
 .experience-bar .i-area-user,
@@ -43,6 +42,7 @@
 .experience-bar .i-search:focus-visible,
 .experience-bar .i-home:focus-visible,
 .experience-bar .i-favorites:focus-visible{
+    background: var(--background);
     color: var(--gray);
     border: none;
     outline: none;

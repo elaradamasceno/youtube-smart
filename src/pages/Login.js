@@ -6,11 +6,12 @@ import { Keyboard } from  '../components/Keyboard';
 import ImageLogin from '../images/img-login.png';
 import '../styles/components/Login.css';
 
+
 export function Login(){
+    let valueName = '';
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [ fieldId, setFieldId] = useState('');
     const [ username, setUserName ] = useState('');
-    let valueName = '';
 
     function fieldFocus(id){
         setFieldId(id);
@@ -19,16 +20,25 @@ export function Login(){
 
     function getLetters(data){
         let element = document.getElementById(`basic_${fieldId}`);
-        let val = element.value;
-        let pos = element.selectionStart;
-        element.value = val.substr(0, pos) + data + val.substr(pos);
-        valueName = element.value;
+        valueName = valueName + data;
+        element.value = valueName;
     }
 
     function clearLetter(data){ 
         let element = document.getElementById(`basic_${fieldId}`);
         element.value = valueName.slice(0, -data);
     }
+
+    function onChange(e){
+        console.log('change ', e.target.value)
+    }
+
+    useEffect(() => {
+        console.log('opa')   
+    }, []);
+
+    
+
 
     return(
         <div className="login">
@@ -38,6 +48,7 @@ export function Login(){
                 <Form
                     name="basic"
                     initialValues={{ remember: true }}
+                    autoComplete="off"
                 >
                     <Form.Item
                         id="name"
@@ -46,8 +57,9 @@ export function Login(){
                         size="middle"
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
+                        onInput={onChange}
                     >   
-                        <Input />
+                        <Input className="navigation" />
                     </Form.Item>
 
                     <Form.Item
@@ -58,7 +70,7 @@ export function Login(){
                         rules={[{ required: true, message: 'Por favor, informe seu e-mail!' }]}
                         onFocus={() => { fieldFocus('mail')}}
                     >
-                        <Input />
+                        <Input className="navigation" />
                     </Form.Item>
 
                     <Form.Item
@@ -68,12 +80,12 @@ export function Login(){
                         rules={[{ required: true, message: 'Por favor, informe sua senha' }]}
                         onFocus={() => { fieldFocus('password')}}
                     >
-                        <Input.Password />
+                        <Input type="password" className="navigation" />
                     </Form.Item>
 
                     <Form.Item>
                         <div className="buttons-login">
-                            <Button id="btn-login-submit" type="primary" htmlType="submit">
+                            <Button id="btn-login-submit" className="navigation" type="primary" htmlType="submit">
                                 Entrar
                             </Button>
                         </div>

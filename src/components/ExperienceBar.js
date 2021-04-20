@@ -16,40 +16,37 @@ export function ExperienceBar(){
         setUserLogged(storageLogged !== null && storageLogged !== false ? true : false);
     })
 
+    useEffect(() => {
+        let element = document.querySelector('.i-home');
+        element.focus();
+    })
+
     return(
         <div className="experience-bar">
             <div>
                 <YoutubeOutlined className="i-youtube" />
 
-                <div className="content-icons">
-                    { userLogged ? (
-                        <Link to="area-user" tabIndex="1">
-                            Elara
-                        </Link>
-                    ): (
-                        <Link to="Login" className="i-area-user" tabIndex="1">
-                            <UserOutlined />
-                        </Link>
-                    )}
-                </div>
+                <Link tabIndex="1" to="/" className="experience-icons i-home navigation selected">
+                    <HomeOutlined />
+                </Link>
 
-                <div className="content-icons">
-                    <Link tabIndex="2" to="/" className="i-home">
-                        <HomeOutlined />
-                    </Link>
-                </div>
+                <Link to="search" className="experience-icons i-search navigation" tabIndex="2">
+                    <SearchOutlined />
+                </Link>
 
-                <div className="content-icons">
-                    <Link to="search" className="i-search" tabIndex="3">
-                        <SearchOutlined />
-                    </Link>
-                </div>
+                <Link to="favorites" className="experience-icons i-favorites navigation" tabIndex="3">
+                    <HeartOutlined />
+                </Link>
 
-                <div className="content-icons">
-                    <Link to="favorites" className="i-favorites" tabIndex="4">
-                        <HeartOutlined />
+                { userLogged ? (
+                    <Link to="area-user" tabIndex="4" className="experience-icons navigation">
+                        Elara
                     </Link>
-                </div>
+                ): (
+                    <Link to="Login" className="experience-icons i-area-user navigation" tabIndex="4">
+                        <UserOutlined />
+                    </Link>
+                )}
             </div>
         </div>
     )
