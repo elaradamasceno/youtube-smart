@@ -1,3 +1,7 @@
+#keyboard{
+	padding: 1rem;
+}
+
 #keyboard .letters a {
 	background: var(--background-side-bar);
 	color: var(--gray-silver);

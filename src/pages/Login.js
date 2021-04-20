@@ -14,6 +14,7 @@ export function Login(){
     function fieldFocus(id){
         setFieldId(id);
         setVisibleKeyboard(true);
+        // setUserName()
     }
 
     function getLetters(data){
@@ -37,6 +38,7 @@ export function Login(){
                         label="Nome"
                         name="name"
                         size="middle"
+                        value={username}
                         rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
                         onFocus={() => { fieldFocus('name')}}
                     >
