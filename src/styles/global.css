@@ -3,9 +3,9 @@
 :root{
     --white: #fff;
     --black: #000000;
-    --background: #363636;
-    --background-side-bar: #1C1C1C;
-    --background-button: #4F4F4F;
+    --grey11: #1C1C1C;
+    --grey21: #363636;
+    --grey31: #4F4F4F;
     --gray: #808080;
     --gray-silver: #C0C0C0;
     --text: #e2e2e2;
@@ -39,7 +39,7 @@
 }
 
 body{
-    background: var(--background);
+    background: var(--grey21);
     color: var(--text);
 }
 .App{

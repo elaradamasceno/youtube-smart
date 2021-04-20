@@ -3,7 +3,7 @@
 }
 
 #keyboard .letters a {
-	background: var(--background-side-bar);
+	background: var(--grey11);
 	color: var(--gray-silver);
 
 	display: inline-block;
@@ -19,13 +19,18 @@
 	line-height: 40px;
 }
 
+#keyboard .letters a:focus,
+#keyboard .letters a:hover{
+	/* background: ; */
+}
+
 #keyboard #special-characters{
 	font-size: 0.75rem;
 	font-weight: bold;
 }
 
 .buttons-keyboard{
-	background: var(--background-button);
+	background: var(--grey31);
 	border: none;
 	margin-right: 1.5rem;
 	margin-top: 0.5rem;

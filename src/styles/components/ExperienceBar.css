@@ -1,6 +1,6 @@
 
 .experience-bar{
-    background: var(--background-side-bar);
+    background: var(--grey11);
     box-shadow: 2px 0px 8px var(--black);
     padding-top: 2rem;
 }
@@ -42,7 +42,7 @@
 .experience-bar .i-search:focus-visible,
 .experience-bar .i-home:focus-visible,
 .experience-bar .i-favorites:focus-visible{
-    background: var(--background);
+    background: var(--grey21);
     color: var(--gray);
     border: none;
     outline: none;
