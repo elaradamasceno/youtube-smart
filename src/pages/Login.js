@@ -41,7 +41,20 @@ export function Login({ setFunctionKeyDown }){
 
     function clearLetter(data){ 
         let element = document.getElementById(`basic_${fieldId}`);
-        element.value = valueName.slice(0, -data);
+        if(fieldId === 'name'){
+            let value = valueName.slice(0, -data);
+            setName(value);
+        }
+
+        if(fieldId === 'mail'){
+            let value = valueMail.slice(0, -data);
+            setMail(value);
+        }
+
+        if(fieldId === 'password'){
+            let value = valuePassword.slice(0, -data);
+            setPassword(value);
+        }
     }
 
     function onSubmit(){
@@ -65,8 +78,8 @@ export function Login({ setFunctionKeyDown }){
                     onSubmitCapture={ () => { onSubmit()} }
                     fields={[
                         {
-                          name: ["name"],
-                          value: valueName,
+                            name: ["name"],
+                            value: valueName,
                         },
                         {
                             name: ["mail"],
