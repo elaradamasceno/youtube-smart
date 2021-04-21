@@ -50,7 +50,10 @@ export function Login({ setFunctionKeyDown }){
     }
 
     useEffect((e) => {}, [fieldId]);
-    useEffect(() => { setFunctionKeyDown('login'); }, []);
+    useEffect(() => { 
+        document.getElementById('basic_name').focus();
+        setFunctionKeyDown('login');
+    }, []);
 
 
     return(
@@ -129,10 +132,10 @@ export function Login({ setFunctionKeyDown }){
                         </div>
                     </Form.Item>
                 </Form>
-                    { 
-                        visibleKeyboard &&
-                        <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
-                    }  
+                { 
+                    visibleKeyboard &&
+                    <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
+                }  
             </div>
 
 

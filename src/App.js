@@ -12,16 +12,17 @@ import { Login } from './pages/Login';
 
 
 function App() {
-    const [callFunctionKeyDown, setFunctionKeyDown] = useState(false);
+    const [ callFunctionKeyDown, setFunctionKeyDown ] = useState(false);
+    const [ callExperienceBar, setCallExperienceBar ]  = useState(false);
 
 
     useEffect(() => {   
-        if (callFunctionKeyDown) {
+        if (callExperienceBar) {
             if (callFunctionKeyDown === 'Login') {    
-                // onKeyDown();
+                // updateExperenceBar
             }
         }
-    }, [callFunctionKeyDown]);
+    }, [callExperienceBar]);
     
     function onKeyDown(){
         let right = 39;
@@ -103,7 +104,7 @@ function App() {
                         </Route>
 
                         <Route path="/Login">
-                            <Login setFunctionKeyDown={setFunctionKeyDown}/>
+                            <Login />
                         </Route>
 
                         <Route>
