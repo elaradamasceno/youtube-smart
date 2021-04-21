@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/global.css';
 import { ExperienceBar } from './components/ExperienceBar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -12,6 +12,16 @@ import { Login } from './pages/Login';
 
 
 function App() {
+    const [callFunctionKeyDown, setFunctionKeyDown] = useState(false);
+
+
+    useEffect(() => {   
+        if (callFunctionKeyDown) {
+            if (callFunctionKeyDown == 'Login') {    
+                // onKeyDown();
+            }
+        }
+    }, [callFunctionKeyDown]);
     
     function onKeyDown(){
         let right = 39;
@@ -103,7 +113,7 @@ function App() {
                         </Route>
 
                         <Route path="/Login">
-                            <Login />
+                            <Login setFunctionKeyDown={setFunctionKeyDown}/>
                         </Route>
 
                         <Route>

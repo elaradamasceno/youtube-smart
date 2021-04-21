@@ -12,11 +12,11 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
     function clickKeyboard(){
         let letters = document.querySelectorAll('#keyboard .letters a');
 
-        letters.forEach(letter => 
+        letters.forEach((letter) => { 
             letter.addEventListener("click", (e) => {
                 getLetters(e.target.textContent);
             })
-        )
+        })
     }
 
     function actionSpace(){
@@ -34,7 +34,7 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
 
     useEffect(() => {
         clickKeyboard();
-    });
+    }, []);
 
     return(
         <div id="keyboard">
