@@ -50,10 +50,7 @@ export function Login({ setFunctionKeyDown }){
     }
 
     useEffect((e) => {}, [fieldId]);
-    useEffect(() => { 
-        document.getElementById('basic_name').focus();
-        setFunctionKeyDown('login');
-    }, []);
+    useEffect(() => { document.getElementById('basic_name').focus(); }, []);
 
 
     return(
