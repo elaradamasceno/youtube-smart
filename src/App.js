@@ -30,8 +30,6 @@ function App() {
         let down = 40;
         let elements = document.querySelectorAll('.navigation');
         let totalColunas = 3;
-
-        console.log(elements)
         
         document.addEventListener('keydown', (e) => {
             let index = 1;
@@ -55,11 +53,6 @@ function App() {
                             case down:
                                 next += index + (totalColunas - 1);
                         }
-
-                        console.log('next ', next)
-                        console.log('index ', index);
-                        console.log('totalItems ', totalItems - 1)
-                        console.log('total colunas ', totalColunas)
                     }
                     index++;
                 });
@@ -79,9 +72,6 @@ function App() {
 
                     index++;
                 })
-
-
-                console.log(next)
             }
         })
     }
