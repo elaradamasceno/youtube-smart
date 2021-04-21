@@ -28,3 +28,7 @@
     background: #8B0000;  
     font-weight: bold;
 }
+
+.search #btn-search:disabled{
+    background: var(--grey31);
+}
