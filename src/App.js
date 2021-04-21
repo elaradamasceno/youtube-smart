@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {   
         if (callFunctionKeyDown) {
-            if (callFunctionKeyDown == 'Login') {    
+            if (callFunctionKeyDown === 'Login') {    
                 // onKeyDown();
             }
         }
@@ -29,7 +29,7 @@ function App() {
         let up = 38;
         let down = 40;
         let elements = document.querySelectorAll('.navigation');
-        let totalColunas = 3;
+        let totalColunas = 1;
         
         document.addEventListener('keydown', (e) => {
             let index = 1;

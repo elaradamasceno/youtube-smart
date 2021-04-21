@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { UserOutlined, SearchOutlined, HomeOutlined, HeartOutlined, YoutubeOutlined} from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
+import { Avatar } from './Avatar';
+
 import '../styles/components/ExperienceBar.css';
 
 export function ExperienceBar(){
     const [userLogged, setUserLogged] = useState(false);
+    let nameUser = '';
 
     function verifyIsLogin(){
-        // localStorage.setItem('IsLogged', true);
+        nameUser = localStorage.getItem('userName') !== null ? true : false;
+                
+        setUserLogged(nameUser !== false ? true : false);
     }
 
     useEffect(() => {
-        let storageLogged = localStorage.getItem('is_logged');
-        setUserLogged(storageLogged !== null && storageLogged !== false ? true : false);
-    })
-
-    useEffect(() => {
+        verifyIsLogin();
         let element = document.querySelector('.i-home');
         element.focus();
     })
@@ -39,9 +40,7 @@ export function ExperienceBar(){
                 </Link>
 
                 { userLogged ? (
-                    <Link to="area-user" tabIndex="4" className="experience-icons navigation">
-                        Elara
-                    </Link>
+                    <Avatar />
                 ): (
                     <Link to="Login" className="experience-icons i-area-user navigation" tabIndex="4">
                         <UserOutlined />

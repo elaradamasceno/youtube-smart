@@ -1,22 +1,21 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Form, Input, Button} from 'antd';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 
+import { Form, Input, Button} from 'antd';
 import { Keyboard } from  '../components/Keyboard';
 import '../styles/components/Login.css';
 
 let fieldId;
 
 export function Login({ setFunctionKeyDown }){
+    const history = useHistory();
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
-    // const [ fieldId, setFieldId] = useState('');
-
     const [valueMail, setMail] = useState('');
     const [valueName, setName] = useState('');
     const [valuePassword, setPassword] = useState('');
 
     function fieldFocus(id){
         setVisibleKeyboard(true);
-        // setFieldId(id);
         fieldId = id;
     }
 
@@ -45,13 +44,13 @@ export function Login({ setFunctionKeyDown }){
         element.value = valueName.slice(0, -data);
     }
 
-    useEffect((e) => {
-        console.log('opa ===>>', fieldId)   
-    }, [fieldId]);
+    function onSubmit(){
+        window.localStorage.setItem('userName', valueName);
+        history.push("/");
+    }
 
-    useEffect(() => {
-        setFunctionKeyDown('login');
-    }, [])
+    useEffect((e) => {}, [fieldId]);
+    useEffect(() => { setFunctionKeyDown('login'); }, []);
 
 
     return(
@@ -63,7 +62,7 @@ export function Login({ setFunctionKeyDown }){
                     name="basic"
                     initialValues={{ remember: true }}
                     autoComplete="off"
-                    onSubmitCapture={() => {console.log('opaa')}}
+                    onSubmitCapture={ () => { onSubmit()} }
                     fields={[
                         {
                           name: ["name"],

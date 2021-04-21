@@ -1,0 +1,22 @@
+.avatar{
+    height: 3.75rem;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar > div{
+    background: var(--gray);
+    height: 80%;
+    border-radius: 50%;
+    width: 60%;
+}
+
+.avatar > div > span{
+    font-size: 1.15rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: var(--grey11);
+}
