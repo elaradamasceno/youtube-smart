@@ -10,8 +10,8 @@ import { ListVideos } from '../components/ListVideos';
 import '../styles/components/Search.css';
 
 export function Search(){
-    const [ valueSearch, setValueSearch ] = useState('João');
-    const [ searchIsVisible, setSearchIsVisible ] = useState(false);
+    const [ valueSearch, setValueSearch ] = useState('');
+    const [ searchIsVisible, setSearchIsVisible ] = useState(true);
     const [ resultSearch, setResultSearch ] = useState(false);
     const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -48,10 +48,6 @@ export function Search(){
             }
         })
     }
-
-    useEffect(() => {
-        request();
-    }, [])
 
     return(
         <div className="search">

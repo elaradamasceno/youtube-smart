@@ -36,8 +36,11 @@
 
 .search .result-search div:first-child{
     display: flex;
-    align-items: center;
-    margin-bottom: 3.5rem;
+    /* align-items: center; */
+}
+
+.search .result-search .content-result-search{
+    padding-top: 3rem;
 }
 
 .search #btn-back-search{

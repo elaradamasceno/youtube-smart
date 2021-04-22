@@ -14,12 +14,12 @@
     max-width: 250px;
 }
 
-.list-videos .videos h1{
+.list-videos .videos .title-videos{
     color: var(--white);
     font-size: 1rem;
 }
 
-.list-videos .videos h2{
+.list-videos .videos .description-videos{
     color: var(--gray-silver);
     font-size: 0.75rem;
 }
@@ -37,4 +37,22 @@
 .list-videos .videos.home,
 .list-videos .home p img{
     height: 150px;
+}
+
+.list-videos .videos.search{
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.list-videos .videos.search:hover,
+.list-videos .videos.search:focus{
+    box-shadow: 4px 4px 10px var(--black);
+}
+
+.list-videos .videos.search p{
+    margin-bottom: 0px;
+}
+
+.list-videos .videos.search .info-videos{
+    padding: 2rem;
 }

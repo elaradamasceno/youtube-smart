@@ -18,8 +18,11 @@ export function ListVideos({ listVideos, typeScreen }){
                             <p>
                                 <img src={medium.url} alt="" />
                             </p>
-                            <h1> {title} </h1>
-                            <h2> {description} </h2>    
+                            <div className="info-videos">
+
+                                <h1 className="title-videos"> {title} </h1>
+                                <p className="description-videos"> {description} </p>    
+                            </div>
                         </div>
                     </a>
                 )
