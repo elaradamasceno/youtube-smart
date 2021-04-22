@@ -1,0 +1,58 @@
+.favorites .user-not-logged{
+    padding: 6rem 4rem 0 2rem;
+}
+
+.favorites .user-not-logged .content-not-logged{
+    position: relative;
+}
+
+.favorites .user-not-logged .content-not-logged div:first-child{
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.favorites .user-not-logged .content-not-logged .card-video{
+    /* background: var(--gray-silver); */
+    background: linear-gradient(to bottom, var(--gray-silver), transparent);
+    opacity: 0.2;
+    border-radius: 0.25rem;
+    height: 200px;
+    width: 300px;
+}
+
+.favorites .user-not-logged .content-not-logged .info-not-logged{
+    position: absolute;
+    width: 100%;
+    top: 7rem;
+    text-align: center;
+}
+
+.favorites .user-not-logged .content-not-logged .info-not-logged h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: var(--white);
+}
+
+.favorites .user-not-logged .content-not-logged .button-login{
+    display: flex;
+    justify-content: center;
+
+    padding-top: 3rem;
+}
+
+.favorites .user-not-logged .content-not-logged .button-login #redirect-login{
+    width: 19.75rem;
+    background: var(--gray-silver);
+    color: var(--grey21);
+
+    font-weight: bold;
+    border: none;
+}
+
+.favorites .user-not-logged .content-not-logged .button-login #redirect-login:focus,
+.favorites .user-not-logged .content-not-logged .button-login #redirect-login:hover{
+    background: var(--red);
+    color: var(--gray-silver);
+}
