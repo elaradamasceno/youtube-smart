@@ -1,0 +1,40 @@
+.list-videos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    gap: 1rem;
+}
+
+.list-videos .videos{
+    margin-bottom: 8rem;
+}
+
+.list-videos .videos.home div{
+    max-width: 250px;
+}
+
+.list-videos .videos h1{
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.list-videos .videos h2{
+    color: var(--gray-silver);
+    font-size: 0.75rem;
+}
+
+.list-videos .videos:hover,
+.list-videos .videos:focus{
+    box-shadow: 6px 6px 11px var(--black);
+}
+
+.list-videos .videos p img{
+    border-radius: 4px;
+    height: 210px;
+}
+
+.list-videos .videos.home,
+.list-videos .home p img{
+    height: 150px;
+}

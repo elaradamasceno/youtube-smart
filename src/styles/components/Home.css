@@ -2,14 +2,3 @@
     color: var(--gray-silver);
     font-size: 2rem;
 }
-
-.home .content-videos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
-    gap: 1rem;
-    border-top: 4px solid var(--grey31);
-
-    padding: 2rem 0rem;
-}

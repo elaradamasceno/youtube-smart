@@ -1,27 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button } from 'antd';
+import axios from 'axios';
+
+import { Input, Button } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import { Keyboard } from  '../components/Keyboard';
+import { ListVideos } from '../components/ListVideos';
+
 import '../styles/components/Search.css';
 
 export function Search(){
-    const [ value, setValue ] = useState('UIAAA');
+    const [ valueSearch, setValueSearch ] = useState('João');
     const [ searchIsVisible, setSearchIsVisible ] = useState(false);
+    const [ resultSearch, setResultSearch ] = useState(false);
+    const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
+
 
     function getLetters(data){
         let element = document.getElementById('field-search');
         let concatValue = element.value + data;
-        setValue(concatValue)
+        setValueSearch(concatValue)
     }
 
     function clearLetter(data){ 
-        let element = document.getElementById('field-search');
-        setValue(value.slice(0, -data)) 
+        setValueSearch(valueSearch.slice(0, -data)) 
     }
 
     function actionButtonSearch(){
-        console.log('opa')
+        request()
     }
+
+    function backToSearch(){
+        setSearchIsVisible(true)
+    }
+
+    function request(){
+        let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${valueSearch}&type=video&key=${YOUTUBE_API_KEY}`
+        axios.get(url)
+        .then(res => {
+            if(res.status === 200){
+                console.log(res)
+                setResultSearch(res.data);
+                setSearchIsVisible(false);
+            }
+            else{
+                setResultSearch(false);
+            }
+        })
+    }
+
+    useEffect(() => {
+        request();
+    }, [])
 
     return(
         <div className="search">
@@ -35,8 +65,8 @@ export function Search(){
                                 className="navigation" 
                                 size="large" 
                                 placeholder="Buscar" 
-                                defaultValue={value}
-                                value={value}
+                                defaultValue={valueSearch}
+                                value={valueSearch}
                             />
 
                             <div className="buttons-search">
@@ -44,7 +74,7 @@ export function Search(){
                                     id="btn-search" 
                                     className="navigation" 
                                     type="primary" 
-                                    disabled={value !== '' ? false : true}
+                                    disabled={valueSearch !== '' ? false : true}
                                     onClick={actionButtonSearch}
                                 >
                                     Buscar
@@ -55,10 +85,20 @@ export function Search(){
                     </div>
                 </div>
             ) : (
-                <div>
-                    <h2>{value}</h2>
+                <div className="result-search">
+                    <div>
+                        <Button 
+                            id="btn-back-search" 
+                            size="large" 
+                            type="primary" 
+                            shape="circle" 
+                            icon={<ArrowLeftOutlined />}
+                            onClick={backToSearch} 
+                        />
+                        <h2>{valueSearch}</h2>
+                    </div>
                     <div className="content-result-search">
-
+                        <ListVideos listVideos={resultSearch} typeScreen="search" />
                     </div>
                 </div>
             )}

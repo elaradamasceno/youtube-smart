@@ -23,7 +23,7 @@ function App() {
             }
         }
     }, [callExperienceBar]);
-    
+
     function onKeyDown(){
         let right = 39;
         let left = 37;

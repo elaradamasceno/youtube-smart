@@ -2,6 +2,7 @@
 .search h2{
     color: var(--gray-silver);
     font-size: 2rem;
+    margin: 0;
 }
 .search .content-search{
     display: grid;
@@ -31,4 +32,30 @@
 
 .search #btn-search:disabled{
     background: var(--grey31);
+}
+
+.search .result-search div:first-child{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.5rem;
+}
+
+.search #btn-back-search{
+    background: var(--red);
+    color: var(--gray-silver);
+    border: none;
+    margin-right: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search #btn-back-search span{
+    font-size: 1rem;
+}
+
+.search #btn-back-search:hover,
+.search #btn-back-search:focus{
+    background: #8B0000;
 }
