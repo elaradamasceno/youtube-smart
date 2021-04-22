@@ -84,7 +84,7 @@ export function Home(){
     return(
         <div className="home">
             {resultAPI.map((element, index) => {
-                console.log(items)
+                console.log(element)
                 return(
                     <div key={index}>
                         <h2>{element.title}</h2>
