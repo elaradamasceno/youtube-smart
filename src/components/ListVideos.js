@@ -3,11 +3,9 @@ import '../styles/components/ListVideos.css';
 export function ListVideos({ listVideos, typeScreen }){
     return(
         <div className="list-videos">
-            { listVideos !== false && listVideos !== undefined && listVideos.items.map(({ id, snippet = {} }) => {
+            { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
                 const { title, description, channelTitle, thumbnails = {}, resourceId = {}} = snippet;
                 const { medium } = thumbnails;
-
-                {console.log(snippet)}
 
                 return (
                     <a 

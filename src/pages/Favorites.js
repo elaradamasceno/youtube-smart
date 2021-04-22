@@ -16,7 +16,7 @@ export function Favorites(){
                         <div className="card-video"></div>
                     </div>
                     <div className="info-not-logged">
-                        <h2>Assista vídeos que você salvou</h2>
+                        <h2>Assista os vídeos que você salvou</h2>
                         <span>Faça login para ver seus favoritos</span>
                     </div>
                     <div className="button-login">

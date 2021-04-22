@@ -2,3 +2,20 @@
     color: var(--gray-silver);
     font-size: 2rem;
 }
+
+.home .btn-music{
+    height: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid var(--gray-silver);
+    background: var(--grey31);
+    color: var(--white);
+}   
+
+.home .btn-music:focus,
+.home .btn-music:hover{
+    background: var(--gray);
+}
