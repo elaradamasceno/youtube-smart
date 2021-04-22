@@ -10,9 +10,6 @@ export function Home(){
     const [ resultAPI, setResultAPI ] = useState();
     const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
     const [ trilhoMusic, setTrilhoMusic ] = useState([]);
-    
-    let allItemsMusic = [];
-    let allItemsNew = [];
 
     function callRequestAPI(id){
         let music = ['UC-9-kyTW8ZkZNDHQJ6FgpwQ'];
@@ -39,11 +36,8 @@ export function Home(){
             })
         }
         else {
-            allItemsMusic = JSON.parse(resultLocalStorage).items;
-            setTrilhoMusic(allItemsMusic)
-
-            let filterItems = allItemsMusic.slice(0, 4);
-            setResultAPI(filterItems);
+            setTrilhoMusic(JSON.parse(resultLocalStorage).items)
+            setResultAPI(JSON.parse(resultLocalStorage).items.slice(0, 4));
         }
     }
 

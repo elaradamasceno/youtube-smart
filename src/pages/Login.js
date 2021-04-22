@@ -40,7 +40,6 @@ export function Login({ setFunctionKeyDown }){
     }
 
     function clearLetter(data){ 
-        let element = document.getElementById(`basic_${fieldId}`);
         if(fieldId === 'name'){
             let value = valueName.slice(0, -data);
             setName(value);
