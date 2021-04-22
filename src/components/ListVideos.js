@@ -11,7 +11,7 @@ export function ListVideos({ listVideos, typeScreen }){
                     <a 
                         key={id.videoId || id.playlistId} 
                         className={`videos ${typeScreen}`} 
-                        href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}>
+                        href={`https://www.youtube.com/watch?v=${id.playlistId}`}>
                         <div>
                             <p>
                                 <img src={medium.url} alt="" />
