@@ -87,9 +87,9 @@ export function Home(){
         let result = []
 
         if(visibleAllVideos)
-            result = items.reduce((acc, o) => acc.concat(elementType.includes(o.type) ? Object.assign(o, { data: element.data.items}) : o), []);
+            result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items}) : i), []);
         else
-            result = items.reduce((acc, o) => acc.concat(elementType.includes(o.type) ? Object.assign(o, { data: element.data.items.slice(0, 4)}) : o), []);
+            result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
 
         setItems(result);
     }
