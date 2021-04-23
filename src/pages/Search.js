@@ -35,7 +35,8 @@ export function Search(){
     }
 
     function request(){
-        let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${valueSearch}&type=video&key=${YOUTUBE_API_KEY}`
+        let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${valueSearch}&type=video&key=${YOUTUBE_API_KEY}`;
+
         axios.get(url)
         .then(res => {
             if(res.status === 200){
@@ -94,7 +95,7 @@ export function Search(){
                         <h2>{valueSearch}</h2>
                     </div>
                     <div className="content-result-search">
-                        <ListVideos listVideos={resultSearch} typeScreen="search" />
+                        <ListVideos listVideos={resultSearch.items} typeScreen="search" />
                     </div>
                 </div>
             )}
