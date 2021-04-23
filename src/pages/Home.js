@@ -30,12 +30,11 @@ export function Home(){
         let music = localStorage.getItem('music');
         let news = localStorage.getItem('news');
         let sports = localStorage.getItem('sports');
-        // console.log(channels)
+        let allItems = [];
 
         if(music === null && news === null && sports === null){
             channels.forEach((element, index) => {
                 let url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${element.channel}&part=snippet,id&order=date&maxResults=20`;
-                let allItems = [];
 
                 axios.get(url)
                 .then(res => {
@@ -49,18 +48,20 @@ export function Home(){
 
                         allItems.push({
                             type: element.type,
-                            data: res.data.items
+                            data: res.data.items.slice(0, 4)
                         });
-
-                        setResultAPI(resultRequest);
-                        setItems(allItems);
                     }
                 })
             });
+
+            setTimeout(() => {
+                setResultAPI(resultRequest);
+                setItems(allItems);
+            }, 2000)
+
         }
         else{
             let arrayStorage = [JSON.parse(music), JSON.parse(news), JSON.parse(sports)];
-            let allItems = [];
 
             channels.forEach((element, index) => {
                 resultRequest.push({
@@ -101,12 +102,12 @@ export function Home(){
 
     return(
         <div className="home">
-            {resultAPI.map((element, index) => {
+            {resultAPI.length !== 0 && resultAPI.map((element, index) => {
                 return(
                     <div key={index}>
                         <h2>{element.title}</h2>
                         <div className="content-videos">
-                            <ListVideos listVideos={items[index].data} typeScreen="home" />
+                            { items.length !== 0 && <ListVideos listVideos={items[index].data} typeScreen="home" /> }
                             <a className="btn-music" onClick={() => actionMoreItems(index, element)}>
                                 { visibleAllVideos ? ( <ArrowDownOutlined /> ) : ( <ArrowUpOutlined /> )}
                             </a>

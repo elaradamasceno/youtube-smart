@@ -18,12 +18,13 @@ export function ListVideos({ listVideos, typeScreen }){
                 const { title, description, channelTitle, thumbnails = {}, resourceId = {}} = snippet;
                 const { medium } = thumbnails;
 
+                
                 return (
                     <a 
                         key={id.videoId || id.playlistId} 
                         className={`videos ${typeScreen}`} 
                         onClick={showPlayer}
-                        // href={`https://www.youtube.com/watch?v=${id.playlistId}`}
+                        href={`https://www.youtube.com/watch?v=${id.playlistId}`}
                     >
                         <div>
                             <p>
@@ -38,10 +39,10 @@ export function ListVideos({ listVideos, typeScreen }){
                     </a>
                 )
             })}
-
+{/* 
             { isPlayerVisible &&
                 <PlayerVideo />
-            }   
+            }    */}
         </div>
     )
 }
