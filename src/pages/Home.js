@@ -83,7 +83,6 @@ export function Home(){
     }
 
     function actionMoreItems(index, element){
-        setVisibleAllVideos(!visibleAllVideos);
         let elementType = [element.type];
         let result = []
 
@@ -93,6 +92,7 @@ export function Home(){
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
 
         setItems(result);
+        setVisibleAllVideos(!visibleAllVideos);
     }
 
     useEffect(() => {
@@ -109,7 +109,7 @@ export function Home(){
                         <div className="content-videos">
                             { items.length !== 0 && <ListVideos listVideos={items[index].data} typeScreen="home" /> }
                             <a className="btn-music" onClick={() => actionMoreItems(index, element)}>
-                                { visibleAllVideos ? ( <ArrowDownOutlined /> ) : ( <ArrowUpOutlined /> )}
+                                { visibleAllVideos ? ( <ArrowUpOutlined /> ) : ( <ArrowDownOutlined /> )}
                             </a>
                         </div>
                     </div>

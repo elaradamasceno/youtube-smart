@@ -1,0 +1,32 @@
+.ant-modal-close-x{
+    display: none;
+}
+
+.ant-modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22.5rem;
+    background: var(--grey11);
+}
+
+.ant-modal-footer{
+    background: var(--grey11);
+    border: none;
+}
+
+.ant-modal-footer .ant-btn{
+    border: none;
+}
+
+.ant-modal-footer .ant-btn:hover,
+ant-modal-footer .ant-btn:focus{
+    background: var(--red);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+}
+
+.ant-modal-footer .ant-btn-primary{
+    display: none;
+}

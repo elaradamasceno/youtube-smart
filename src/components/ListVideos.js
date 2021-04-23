@@ -6,8 +6,11 @@ import '../styles/components/ListVideos.css';
 
 export function ListVideos({ listVideos, typeScreen }){
     const [isPlayerVisible, setPlayerVisible] = useState(false);
+    const [videoId, setVideoId ] = useState('');
 
-    function showPlayer(){
+    function showPlayer(data){
+        let splitData = data.default.url.split('/');
+        setVideoId(splitData[4])
         setPlayerVisible(true);
     };
 
@@ -15,16 +18,15 @@ export function ListVideos({ listVideos, typeScreen }){
     return(
         <div className="list-videos">
             { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
-                const { title, description, channelTitle, thumbnails = {}, resourceId = {}} = snippet;
+                const { title, description, thumbnails = {}, resourceId = {}} = snippet;
                 const { medium } = thumbnails;
-
                 
                 return (
                     <a 
-                        key={id.videoId || id.playlistId} 
+                        key={id.playlistId} 
                         className={`videos ${typeScreen}`} 
                         onClick={showPlayer}
-                        href={`https://www.youtube.com/watch?v=${id.playlistId}`}
+                        onClick={() => {showPlayer(thumbnails)}}
                     >
                         <div>
                             <p>
@@ -39,10 +41,16 @@ export function ListVideos({ listVideos, typeScreen }){
                     </a>
                 )
             })}
-{/* 
-            { isPlayerVisible &&
-                <PlayerVideo />
-            }    */}
+
+            <Modal
+                centered
+                visible={isPlayerVisible}
+                width={600}
+                onCancel={() => setPlayerVisible(false)}
+                cancelText="Fechar"
+            >
+                <PlayerVideo videoId={videoId}/>
+            </Modal>
         </div>
     )
 }
