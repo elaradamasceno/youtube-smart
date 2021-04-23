@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
+import { HeartOutlined } from '@ant-design/icons';
 
 import { PlayerVideo } from '../components/PlayerVideo';
 import '../styles/components/ListVideos.css';
@@ -22,23 +23,26 @@ export function ListVideos({ listVideos, typeScreen }){
                 const { medium } = thumbnails;
                 
                 return (
-                    <a 
-                        key={id.playlistId} 
-                        className={`videos ${typeScreen}`} 
-                        onClick={showPlayer}
-                        onClick={() => {showPlayer(thumbnails)}}
-                    >
-                        <div>
-                            <p>
-                                <img src={medium.url} alt="" />
-                            </p>
-                            <div className="info-videos">
+                    <>
+                        <a 
+                            key={id.playlistId} 
+                            className={`videos ${typeScreen}`} 
+                            onClick={showPlayer}
+                            onClick={() => {showPlayer(thumbnails)}}
+                        >
+                            <div>
+                                <p>
+                                    <img src={medium.url} alt="" />
+                                </p>
+                                <div className="info-videos">
 
-                                <h1 className="title-videos"> {title} </h1>
-                                <p className="description-videos"> {description} </p> 
+                                    <h1 className="title-videos"> {title} </h1>
+                                    <p className="description-videos"> {description} </p> 
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                        <HeartOutlined />
+                    </>
                 )
             })}
 

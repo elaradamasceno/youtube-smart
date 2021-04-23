@@ -20,7 +20,7 @@ export function Home(){
         let channels = [
             {type: 'music', title: 'Música', channel: 'UC-9-kyTW8ZkZNDHQJ6FgpwQ'}, 
             {type: 'news', title: 'Notícias', channel: 'UCYfdidRxbB8Qhf0Nx7ioOYw'}, 
-            {type: 'sports', title: 'Esportes', channel: 'UCEgdi0XIXXZ-qJOFPf4JSKw'}
+            {type: 'sports', title: 'Esportes', channel: 'UCEgdi0XIXXZ-qJOFPf4JSKw'},
         ];
 
         requestAPIYoutube(channels)
