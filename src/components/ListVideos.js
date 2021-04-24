@@ -6,8 +6,9 @@ import { PlayerVideo } from '../components/PlayerVideo';
 import '../styles/components/ListVideos.css';
 
 export function ListVideos({ listVideos, typeScreen }){
-    const [isPlayerVisible, setPlayerVisible] = useState(false);
-    const [videoId, setVideoId ] = useState('');
+    const [ isPlayerVisible, setPlayerVisible ] = useState(false);
+    const [ videoId, setVideoId ] = useState('');
+    let savedVideo = [];
 
     function showPlayer(data){
         let splitData = data.default.url.split('/');
@@ -15,11 +16,16 @@ export function ListVideos({ listVideos, typeScreen }){
         setPlayerVisible(true);
     };
 
+    function actionSaveVideo(id, snippet){
+        savedVideo.push(snippet);
+        window.localStorage.setItem('savedVideo', JSON.stringify(savedVideo));
+    }
+
 
     return(
         <div className="list-videos">
             { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
-                const { title, description, thumbnails = {}, resourceId = {}} = snippet;
+                const { title, description, thumbnails = {} } = snippet;
                 const { medium } = thumbnails;
                 
                 return (
@@ -41,7 +47,14 @@ export function ListVideos({ listVideos, typeScreen }){
                                 </div>
                             </div>
                         </a>
-                        <Button type="primary" className={`button-save ${typeScreen}`} size="large" icon={<HeartOutlined />}></Button>
+                        <Button 
+                            type="primary" 
+                            className={`button-save ${typeScreen}`} 
+                            size="large" 
+                            icon={<HeartOutlined />}
+                            onClick={() => {actionSaveVideo(id, snippet)}}
+                        >
+                        </Button>
                     </>
                 )
             })}

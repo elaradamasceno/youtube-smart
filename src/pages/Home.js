@@ -6,7 +6,6 @@ import { ListVideos } from '../components/ListVideos';
 import '../styles/components/Home.css';
 
 export function Home(){
-    const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems';
     const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
 
     const [ errorRequest, setErrorRequest ] = useState(false);
