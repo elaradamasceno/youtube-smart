@@ -81,7 +81,6 @@ export function ListVideos({ listVideos, typeScreen }){
                     <Fragment key={video.id.playlistId}>
                         <a  
                             className={`videos ${typeScreen} nagivation`} 
-                            onClick={showPlayer}
                             onClick={() => {showPlayer(video.snippet.thumbnails)}}
                         >
                             <div>
