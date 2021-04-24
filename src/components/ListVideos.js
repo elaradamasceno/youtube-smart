@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, Fragment} from 'react';
 import { Modal, Button } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
@@ -79,11 +79,12 @@ export function ListVideos({ listVideos, typeScreen }){
             { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
                 const { title, description, thumbnails, channelTitle = {} } = snippet;
                 const { medium } = thumbnails;
+
+                console.log(id.playlistId)
                 
                 return (
-                    <>
-                        <a 
-                            key={id.playlistId} 
+                    <Fragment key={id.playlistId}>
+                        <a  
                             className={`videos ${typeScreen}`} 
                             onClick={showPlayer}
                             onClick={() => {showPlayer(thumbnails)}}
@@ -109,7 +110,7 @@ export function ListVideos({ listVideos, typeScreen }){
                             >
                             </Button>
                         }
-                    </>
+                    </Fragment>
                 )
             })}
 
