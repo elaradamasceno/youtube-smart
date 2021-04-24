@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
@@ -111,9 +112,9 @@ export function Home(){
                         <h2>{element.title}</h2>
                         <div className="content-videos">
                             { items.length !== 0 && <ListVideos listVideos={items[index].data} typeScreen="home" /> }
-                            <a className="btn-music" onClick={() => actionMoreItems(index, element)}>
+                            <Button className="btn-music" onClick={() => actionMoreItems(index, element)}>
                                 { visibleAllVideos ? ( <ArrowUpOutlined /> ) : ( <ArrowDownOutlined /> )}
-                            </a>
+                            </Button>
                         </div>
                     </div>
                 )
