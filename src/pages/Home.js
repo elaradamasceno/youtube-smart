@@ -87,7 +87,7 @@ export function Home(){
         let elementType = [element.type];
         let result = []
 
-        if(visibleAllVideos){
+        if(items[index].data.length === 4){
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items}) : i), []);
             setItems(result);
         }
