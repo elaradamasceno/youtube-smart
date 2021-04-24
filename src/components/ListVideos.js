@@ -79,7 +79,7 @@ export function ListVideos({ listVideos, typeScreen }){
             { listVideos !== false && listVideos !== undefined && listVideos.map((video, index) => {
                 return (
                     <Fragment key={video.id.playlistId}>
-                        <a  
+                        <Button 
                             className={`videos ${typeScreen} nagivation`} 
                             onClick={() => {showPlayer(video.snippet.thumbnails)}}
                         >
@@ -88,12 +88,11 @@ export function ListVideos({ listVideos, typeScreen }){
                                     <img src={video.snippet.thumbnails.medium.url} alt="" />
                                 </p>
                                 <div className="info-videos">
-
                                     <h1 className="title-videos"> {video.snippet.title} </h1>
                                     <p className="description-videos"> {video.snippet.description} </p> 
                                 </div>
                             </div>
-                        </a>
+                        </Button>
                         {userIsLogged && 
                             <Button
                                 type="primary" 

@@ -7,7 +7,14 @@
 }
 
 .list-videos .videos{
+    padding: 0px;
+    border: none;
+    background: transparent;
     margin-bottom: 8rem;
+}
+
+.list-videos .info-videos{
+    white-space: normal
 }
 
 .list-videos .videos.home div{
