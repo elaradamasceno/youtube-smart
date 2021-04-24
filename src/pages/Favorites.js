@@ -6,6 +6,7 @@ import '../styles/components/Favorites.css';
 
 export function Favorites({isLogged}){
     const [userLogged, setUserLogged] = useState(false);
+    const [ savedVideo, setSavedVideo ] = useState([]);
     const history = useHistory();
 
     function verifyIsLogged(){
@@ -13,16 +14,36 @@ export function Favorites({isLogged}){
         setUserLogged(nameUser !== false ? true : false);     
     }
 
+    function verifySavedVideo(){
+        setSavedVideo(JSON.parse(localStorage.getItem('savedVideo')));
+    }
+
     useEffect(() => {
         verifyIsLogged();
+        verifySavedVideo();
     }, []);
 
 
     return(
         <div className="favorites">
             {userLogged ? (
-                <div className="user-logged">
-
+                <div>
+                    <h2>Seus vídeos salvos!</h2>
+                    <div className="user-logged">
+                        { savedVideo && savedVideo.map((video, index) => {
+                            return(
+                                <>
+                                    <a className="video-saved" key={index}>
+                                        <img src={video.thumbnails.medium.url} alt="" />
+                                    </a>
+                                    <a className="video-saved" key={index}>
+                                        <img src={video.thumbnails.medium.url} alt="" />
+                                    </a>
+                                </>
+                                
+                            )
+                        })}
+                    </div>
                 </div>
             ) : (
                 <div className="user-not-logged">

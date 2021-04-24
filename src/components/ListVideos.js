@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Modal, Button } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
@@ -8,6 +8,7 @@ import '../styles/components/ListVideos.css';
 export function ListVideos({ listVideos, typeScreen }){
     const [ isPlayerVisible, setPlayerVisible ] = useState(false);
     const [ videoId, setVideoId ] = useState('');
+    const [ userIsLogged, setUserIsLogged ] = useState(false);
     let savedVideo = [];
 
     function showPlayer(data){
@@ -17,9 +18,19 @@ export function ListVideos({ listVideos, typeScreen }){
     };
 
     function actionSaveVideo(id, snippet){
+        
         savedVideo.push(snippet);
         window.localStorage.setItem('savedVideo', JSON.stringify(savedVideo));
     }
+
+    function userLogged(){
+        let nameUser = localStorage.getItem('userName') !== null ? true : false;      
+        setUserIsLogged(nameUser !== false ? true : false);
+    }
+
+    useEffect(() => {
+        userLogged();
+    }, [])
 
 
     return(
@@ -47,14 +58,16 @@ export function ListVideos({ listVideos, typeScreen }){
                                 </div>
                             </div>
                         </a>
-                        <Button 
-                            type="primary" 
-                            className={`button-save ${typeScreen}`} 
-                            size="large" 
-                            icon={<HeartOutlined />}
-                            onClick={() => {actionSaveVideo(id, snippet)}}
-                        >
-                        </Button>
+                        {userIsLogged && 
+                            <Button
+                                type="primary" 
+                                className={`button-save ${typeScreen}`} 
+                                size="large" 
+                                icon={<HeartOutlined />}
+                                onClick={() => {actionSaveVideo(id, snippet)}}
+                            >
+                            </Button>
+                        }
                     </>
                 )
             })}

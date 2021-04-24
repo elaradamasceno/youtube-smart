@@ -100,9 +100,7 @@ export function Home(){
         callRequestAPI();
     },[]);
 
-    useEffect(() => {
-        console.log(items)
-    }, [items])
+    useEffect(() => {}, [items]);
 
 
     return(
