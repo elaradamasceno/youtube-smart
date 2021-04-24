@@ -12,17 +12,11 @@ import { Login } from './pages/Login';
 
 
 function App() {
-    const [ callFunctionKeyDown, setFunctionKeyDown ] = useState(false);
-    const [ callExperienceBar, setCallExperienceBar ]  = useState(false);
+    const [ isLogged, setIsLogged ] = useState(false);
 
-
-    useEffect(() => {   
-        if (callExperienceBar) {
-            if (callFunctionKeyDown === 'Login') {    
-                // updateExperenceBar
-            }
-        }
-    }, [callExperienceBar]);
+    function verifyIsLogged(data){
+        setIsLogged(data)
+    }
 
     function onKeyDown(){
         let right = 39;
@@ -84,7 +78,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <ExperienceBar/>
+                <ExperienceBar setIsLogged={setIsLogged} />
                 <div className="container">
                     <Switch>
                         <Route exact path="/">
@@ -104,7 +98,7 @@ function App() {
                         </Route>
 
                         <Route path="/Login">
-                            <Login />
+                            <Login verifyIsLogged={verifyIsLogged} />
                         </Route>
 
                         <Route>

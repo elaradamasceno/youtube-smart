@@ -6,7 +6,7 @@ import { Avatar } from './Avatar';
 
 import '../styles/components/ExperienceBar.css';
 
-export function ExperienceBar(){
+export function ExperienceBar({setIsLogged}){
     const [userLogged, setUserLogged] = useState(false);
     let nameUser = '';
 
@@ -21,6 +21,10 @@ export function ExperienceBar(){
         let element = document.querySelector('.i-home');
         element.focus();
     })
+
+    useEffect(() => {
+        console.log('oooo ', setIsLogged)
+    }, [setIsLogged])
 
     return(
         <div className="experience-bar">

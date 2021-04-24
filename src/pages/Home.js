@@ -83,21 +83,27 @@ export function Home(){
     }
 
     function actionMoreItems(index, element){
+        setVisibleAllVideos(!visibleAllVideos);
         let elementType = [element.type];
         let result = []
 
-        if(visibleAllVideos)
+        if(visibleAllVideos){
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items}) : i), []);
-        else
+            setItems(result);
+        }
+        else{
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
-
-        setItems(result);
-        setVisibleAllVideos(!visibleAllVideos);
+            setItems(result);
+        }
     }
 
     useEffect(() => {
         callRequestAPI();
     },[]);
+
+    useEffect(() => {
+        console.log(items)
+    }, [items])
 
 
     return(

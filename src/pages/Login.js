@@ -7,7 +7,7 @@ import '../styles/components/Login.css';
 
 let fieldId;
 
-export function Login({ setFunctionKeyDown }){
+export function Login({ verifyIsLogged }){
     const history = useHistory();
     const [ visibleKeyboard, setVisibleKeyboard ] = useState(false);
     const [valueMail, setMail] = useState('');
@@ -59,6 +59,8 @@ export function Login({ setFunctionKeyDown }){
     function onSubmit(){
         window.localStorage.setItem('userName', valueName);
         history.push("/");
+
+        verifyIsLogged(true);
     }
 
     useEffect((e) => {}, [fieldId]);
@@ -146,8 +148,6 @@ export function Login({ setFunctionKeyDown }){
                     <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
                 }  
             </div>
-
-
         </div>
     )
 }
