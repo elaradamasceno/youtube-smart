@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { useHistory } from "react-router-dom";
 
 import { Modal, Button } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
+
+import { PlayerVideo } from '../components/PlayerVideo';
 import '../styles/components/Favorites.css';
 
 export function Favorites({isLogged}){
+    const [ isPlayerVisible, setPlayerVisible ] = useState(false);
     const [userLogged, setUserLogged] = useState(false);
     const [ savedVideo, setSavedVideo ] = useState([]);
+    const [ videoId, setVideoId ] = useState('');
     const history = useHistory();
 
     function verifyIsLogged(){
@@ -19,11 +23,25 @@ export function Favorites({isLogged}){
         setSavedVideo(JSON.parse(localStorage.getItem('savedVideo')));
     }
 
-    useEffect(() => {
-        verifyIsLogged();
-        verifySavedVideo();
-    }, []);
+    function deleteVideo(index, video){
+        let allVideos = savedVideo;
+        allVideos.splice(index, 1);
 
+        setSavedVideo(allVideos);
+
+        window.localStorage.setItem('savedVideo', JSON.stringify(allVideos));
+    }
+
+    function showPlayer(data){
+        let splitData = data.default.url.split('/');
+        setVideoId(splitData[4])
+        setPlayerVisible(true);
+    };
+
+    useEffect(() => {
+        verifySavedVideo();
+        verifyIsLogged();
+    }, []);
 
     return(
         <div className="favorites">
@@ -33,8 +51,8 @@ export function Favorites({isLogged}){
                     <div className="user-logged">
                         {savedVideo !== null && savedVideo.length > 0 && savedVideo.map((video, index) => {
                             return(
-                                <>
-                                    <a className="video-saved" key={index}>
+                                <Fragment key={index}>
+                                    <a className="video-saved" onClick={() => {showPlayer(video.thumbnails)}} >
                                         <p>
                                             <img src={video.thumbnails.medium.url} alt="" />
                                         </p>
@@ -48,13 +66,23 @@ export function Favorites({isLogged}){
                                         type="primary" 
                                         size="large" 
                                         icon={<DeleteOutlined />}
-                                        onClick={() => {}}
+                                        onClick={() => { deleteVideo(index, video)}}
                                     >
                                     </Button>
-                                </>
+                                </Fragment>
                             )
                         })}
                     </div>
+
+                    <Modal
+                        centered
+                        visible={isPlayerVisible}
+                        width={600}
+                        onCancel={() => setPlayerVisible(false)}
+                        cancelText="Fechar"
+                    >
+                        <PlayerVideo videoId={videoId}/>
+                    </Modal>
                 </div>
             ) : (
                 <div className="user-not-logged">

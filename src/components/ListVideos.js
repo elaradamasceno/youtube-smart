@@ -79,8 +79,6 @@ export function ListVideos({ listVideos, typeScreen }){
             { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
                 const { title, description, thumbnails, channelTitle = {} } = snippet;
                 const { medium } = thumbnails;
-
-                console.log(id.playlistId)
                 
                 return (
                     <Fragment key={id.playlistId}>
