@@ -40,10 +40,10 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
         <div id="keyboard">
             <div className="letters">
                 { visibleLetters ? allLetters.map((letter, index) => (
-                    <a className="button-letter navigation" key={index} tabIndex={index}>{letter}</a>
+                    <Button className="button-letter navigation" key={index}>{letter}</Button>
                 )) : (
                     otherCharacters.map((character, index) => (
-                        <a className="button-letter navigation" key={index} tabIndex={index}>{character}</a>
+                        <Button className="button-letter navigation" key={index}>{character}</Button>
                 )))}
             </div>
             <div className="buttons">

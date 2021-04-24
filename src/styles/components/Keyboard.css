@@ -2,9 +2,12 @@
 	padding: 1rem;
 }
 
-#keyboard .letters a {
+#keyboard .letters button {
 	background: var(--grey11);
 	color: var(--gray-silver);
+
+	border: none;
+	padding: 0;
 
 	display: inline-block;
 	position: relative;
@@ -34,8 +37,8 @@
 	transition: background-color 0.8s;
 }
 
-#keyboard .letters a:focus,
-#keyboard .letters a:hover,
+#keyboard .letters button:focus,
+#keyboard .letters button:hover,
 .buttons-keyboard:hover,
 .buttons-keyboard:focus{
 	background: var(--gray-silver);
