@@ -111,8 +111,8 @@ export function Home(){
                     <div key={index}>
                         <h2>{element.title}</h2>
                         <div className="content-videos">
-                            { items.length !== 0 && <ListVideos listVideos={items[index].data} typeScreen="home" /> }
-                            <Button className="btn-music" onClick={() => actionMoreItems(index, element)}>
+                            { items.length !== 0 && <ListVideos className="navigation" listVideos={items[index].data} typeScreen="home" /> }
+                            <Button className="btn-music navigation" onClick={() => actionMoreItems(index, element)}>
                                 { visibleAllVideos ? ( <ArrowUpOutlined /> ) : ( <ArrowDownOutlined /> )}
                             </Button>
                         </div>
