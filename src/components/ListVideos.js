@@ -5,11 +5,14 @@ import { HeartOutlined } from '@ant-design/icons';
 import { PlayerVideo } from '../components/PlayerVideo';
 import '../styles/components/ListVideos.css';
 
+let savedTrilhoMusic = [];
+let savedTrilhoNews = [];
+let savedTrilhoSports = [];
+let savedVideo = [];
 export function ListVideos({ listVideos, typeScreen }){
     const [ isPlayerVisible, setPlayerVisible ] = useState(false);
     const [ videoId, setVideoId ] = useState('');
     const [ userIsLogged, setUserIsLogged ] = useState(false);
-    let savedVideo = [];
 
     function showPlayer(data){
         let splitData = data.default.url.split('/');
@@ -17,9 +20,48 @@ export function ListVideos({ listVideos, typeScreen }){
         setPlayerVisible(true);
     };
 
-    function actionSaveVideo(id, snippet){
-        savedVideo.push(snippet);
-        window.localStorage.setItem('savedVideo', JSON.stringify(savedVideo));
+    function actionSaveVideo(snippet, channelTitle){
+        let allVideos = [];
+        if(channelTitle === 'Music'){
+            savedTrilhoMusic.push(snippet);
+
+            let validateVideo = savedTrilhoMusic.filter(function(este, i) {
+                return savedTrilhoMusic.indexOf(este) === i;
+            });
+
+            savedTrilhoMusic = validateVideo;
+        }
+        else if(channelTitle === 'News'){
+            savedTrilhoNews.push(snippet);
+
+            let validateVideo = savedTrilhoNews.filter(function(este, i) {
+                return savedTrilhoNews.indexOf(este) === i;
+            });
+
+            savedTrilhoNews = validateVideo;
+        }
+        else if(channelTitle === 'Sports'){
+            savedTrilhoSports.push(snippet);
+
+            let validateVideo = savedTrilhoSports.filter(function(este, i) {
+                return savedTrilhoSports.indexOf(este) === i;
+            });
+
+            savedTrilhoSports = validateVideo
+        }
+        else{
+            savedVideo.push(snippet);
+
+            let validateVideo = savedVideo.filter(function(este, i) {
+                return savedVideo.indexOf(este) === i;
+            });
+
+            savedVideo = validateVideo;
+        }
+
+        allVideos = savedTrilhoMusic.concat(savedTrilhoNews, savedTrilhoSports, savedVideo);
+        window.localStorage.setItem('savedVideo', JSON.stringify(allVideos));
+        
     }
 
     function userLogged(){
@@ -35,7 +77,7 @@ export function ListVideos({ listVideos, typeScreen }){
     return(
         <div className="list-videos">
             { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
-                const { title, description, thumbnails = {} } = snippet;
+                const { title, description, thumbnails, channelTitle = {} } = snippet;
                 const { medium } = thumbnails;
                 
                 return (
@@ -63,7 +105,7 @@ export function ListVideos({ listVideos, typeScreen }){
                                 className={`button-save ${typeScreen}`} 
                                 size="large" 
                                 icon={<HeartOutlined />}
-                                onClick={() => {actionSaveVideo(id, snippet)}}
+                                onClick={() => {actionSaveVideo(snippet, channelTitle)}}
                             >
                             </Button>
                         }

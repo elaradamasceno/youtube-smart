@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
-import { Button } from 'antd';
+import { Modal, Button } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 import '../styles/components/Favorites.css';
 
 export function Favorites({isLogged}){
@@ -28,9 +29,9 @@ export function Favorites({isLogged}){
         <div className="favorites">
             {userLogged ? (
                 <div>
-                    <h2>{savedVideo.length > 0 ? 'Seus vídeos salvos' : 'Você não tem vídeos salvos'}</h2>
+                    <h2>{savedVideo !== null && savedVideo.length > 0 ? 'Seus vídeos salvos' : 'Você ainda não tem vídeos salvos'}</h2>
                     <div className="user-logged">
-                        { savedVideo.length > 0 && savedVideo.map((video, index) => {
+                        {savedVideo !== null && savedVideo.length > 0 && savedVideo.map((video, index) => {
                             return(
                                 <>
                                     <a className="video-saved" key={index}>
@@ -39,9 +40,17 @@ export function Favorites({isLogged}){
                                         </p>
                                         <div className="info-videos">
                                             <h3 className="title-videos"> {video.title} </h3>
-                                            <p className="description-videos"> {} </p> 
+                                            <p className="description-videos"> {video.description} </p> 
                                         </div>
                                     </a>
+                                    <Button
+                                        className="delete-video"
+                                        type="primary" 
+                                        size="large" 
+                                        icon={<DeleteOutlined />}
+                                        onClick={() => {}}
+                                    >
+                                    </Button>
                                 </>
                             )
                         })}

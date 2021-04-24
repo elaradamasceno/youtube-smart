@@ -9,7 +9,18 @@
     justify-content: end;
     grid-gap: 1rem;
     gap: 1rem;
-    margin: 4rem;
+    margin: 2rem;
+}
+
+.favorites .user-logged .delete-video{
+    left: -68px;
+    background: var(--gray-silver);
+    border: none;
+}
+
+.favorites .user-logged .delete-video:hover,
+.favorites .user-logged .delete-video:focus{
+    background: var(--gray);
 }
 
 .favorites .user-logged .video-saved{
@@ -20,6 +31,11 @@
 .favorites .user-logged .video-saved .info-videos .title-videos{
     font-size: 1rem;
     color: var(--gray-silver);
+}
+
+.favorites .user-logged .video-saved .info-videos .description-videos{
+    font-size: 0.75rem;
+    color: var(--white);
 }
 
 .favorites .user-logged .video-saved img{
