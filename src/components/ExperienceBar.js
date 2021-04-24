@@ -21,10 +21,6 @@ export function ExperienceBar({setIsLogged}){
         element.focus();
     })
 
-    useEffect(() => {
-        console.log('oooo ', setIsLogged)
-    }, [setIsLogged])
-
     return(
         <div className="experience-bar">
             <div>

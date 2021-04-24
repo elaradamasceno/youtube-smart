@@ -34,6 +34,24 @@
     height: 210px;
 }
 
+.list-videos .button-save{
+    top: -56px;
+    left: -302px;
+
+    background: var(--gray-silver);
+    border: none;
+}
+
+.list-videos .button-save.home{
+    top: 0;
+    left: -44px;
+}
+
+.list-videos .button-save:hover,
+.list-videos .button-save:focus{
+    background: var(--gray);
+}
+
 .list-videos .videos.home,
 .list-videos .home p img{
     height: 150px;

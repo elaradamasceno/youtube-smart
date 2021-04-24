@@ -31,7 +31,6 @@ function App() {
             let totalItems = elements.length;
             let next = 1;
 
-            // || e.keyCode === up || e.keyCode === down
             if(e.keyCode === right || e.keyCode === left){
                 elements.forEach((element, i) => {
                     if(element.classList.contains('selected')){

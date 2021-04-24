@@ -41,7 +41,7 @@ export function ListVideos({ listVideos, typeScreen }){
                                 </div>
                             </div>
                         </a>
-                        <HeartOutlined />
+                        <Button type="primary" className={`button-save ${typeScreen}`} size="large" icon={<HeartOutlined />}></Button>
                     </>
                 )
             })}
