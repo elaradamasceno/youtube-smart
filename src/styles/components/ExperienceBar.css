@@ -34,6 +34,11 @@
     text-decoration: none;
 }
 
+.experience-bar .ant-btn{
+    background: transparent;
+    border: none;
+}
+
 .experience-bar .i-area-user:hover,
 .experience-bar .i-search:hover,
 .experience-bar .i-home:hover,

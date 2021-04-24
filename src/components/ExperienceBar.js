@@ -26,22 +26,22 @@ export function ExperienceBar({setIsLogged}){
             <div>
                 <YoutubeOutlined className="i-youtube" />
 
-                <Link tabIndex="1" to="/" className="experience-icons i-home navigation selected">
+                <Link tabIndex="1" to="/" className="ant-btn experience-icons i-home navigation selected">
                     <HomeOutlined />
                 </Link>
 
-                <Link to="search" className="experience-icons i-search navigation" tabIndex="2">
+                <Link to="search" className="ant-btn experience-icons i-search navigation" tabIndex="2">
                     <SearchOutlined />
                 </Link>
 
-                <Link to="favorites" className="experience-icons i-favorites navigation" tabIndex="3">
+                <Link to="favorites" className="ant-btn experience-icons i-favorites navigation" tabIndex="3">
                     <HeartOutlined />
                 </Link>
 
                 { userLogged ? (
                     <Avatar />
                 ): (
-                    <Link to="Login" className="experience-icons i-area-user navigation" tabIndex="4">
+                    <Link to="Login" className="ant-btn experience-icons i-area-user navigation" tabIndex="4">
                         <UserOutlined />
                     </Link>
                 )}

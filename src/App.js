@@ -23,8 +23,8 @@ function App() {
         let left = 37;
         let up = 38;
         let down = 40;
-        let elements = document.querySelectorAll('.navigation');
         let totalColunas = 1;
+        let elements = document.querySelectorAll('.ant-btn.navigation');
         
         document.addEventListener('keydown', (e) => {
             let index = 1;
