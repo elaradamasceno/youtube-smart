@@ -18,7 +18,6 @@ export function ListVideos({ listVideos, typeScreen }){
     };
 
     function actionSaveVideo(id, snippet){
-        
         savedVideo.push(snippet);
         window.localStorage.setItem('savedVideo', JSON.stringify(savedVideo));
     }

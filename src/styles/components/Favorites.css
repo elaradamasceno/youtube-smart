@@ -1,3 +1,8 @@
+.favorites h2{
+    font-size: 2.5rem;
+    color: var(--gray-silver);
+}
+
 .favorites .user-logged{
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +14,12 @@
 
 .favorites .user-logged .video-saved{
     margin: 0 2rem 3rem 1rem;
+    max-width: 18.75rem;
+}
+
+.favorites .user-logged .video-saved .info-videos .title-videos{
+    font-size: 1rem;
+    color: var(--gray-silver);
 }
 
 .favorites .user-logged .video-saved img{

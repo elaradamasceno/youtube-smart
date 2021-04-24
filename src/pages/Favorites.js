@@ -28,19 +28,21 @@ export function Favorites({isLogged}){
         <div className="favorites">
             {userLogged ? (
                 <div>
-                    <h2>Seus vídeos salvos!</h2>
+                    <h2>{savedVideo.length > 0 ? 'Seus vídeos salvos' : 'Você não tem vídeos salvos'}</h2>
                     <div className="user-logged">
-                        { savedVideo && savedVideo.map((video, index) => {
+                        { savedVideo.length > 0 && savedVideo.map((video, index) => {
                             return(
                                 <>
                                     <a className="video-saved" key={index}>
-                                        <img src={video.thumbnails.medium.url} alt="" />
-                                    </a>
-                                    <a className="video-saved" key={index}>
-                                        <img src={video.thumbnails.medium.url} alt="" />
+                                        <p>
+                                            <img src={video.thumbnails.medium.url} alt="" />
+                                        </p>
+                                        <div className="info-videos">
+                                            <h3 className="title-videos"> {video.title} </h3>
+                                            <p className="description-videos"> {} </p> 
+                                        </div>
                                     </a>
                                 </>
-                                
                             )
                         })}
                     </div>
