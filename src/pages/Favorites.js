@@ -27,9 +27,8 @@ export function Favorites({isLogged}){
         let allVideos = savedVideo;
         allVideos.splice(index, 1);
 
-        setSavedVideo(allVideos);
-
         window.localStorage.setItem('savedVideo', JSON.stringify(allVideos));
+        verifySavedVideo();
     }
 
     function showPlayer(data){
