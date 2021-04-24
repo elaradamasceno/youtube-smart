@@ -76,35 +76,32 @@ export function ListVideos({ listVideos, typeScreen }){
 
     return(
         <div className="list-videos">
-            { listVideos !== false && listVideos !== undefined && listVideos.map(({ id, snippet = {} }) => {
-                const { title, description, thumbnails, channelTitle = {} } = snippet;
-                const { medium } = thumbnails;
-                
+            { listVideos !== false && listVideos !== undefined && listVideos.map((video, index) => {
                 return (
-                    <Fragment key={id.playlistId}>
+                    <Fragment key={video.id.playlistId}>
                         <a  
-                            className={`videos ${typeScreen}`} 
+                            className={`videos ${typeScreen} nagivation`} 
                             onClick={showPlayer}
-                            onClick={() => {showPlayer(thumbnails)}}
+                            onClick={() => {showPlayer(video.snippet.thumbnails)}}
                         >
                             <div>
                                 <p>
-                                    <img src={medium.url} alt="" />
+                                    <img src={video.snippet.thumbnails.medium.url} alt="" />
                                 </p>
                                 <div className="info-videos">
 
-                                    <h1 className="title-videos"> {title} </h1>
-                                    <p className="description-videos"> {description} </p> 
+                                    <h1 className="title-videos"> {video.snippet.title} </h1>
+                                    <p className="description-videos"> {video.snippet.description} </p> 
                                 </div>
                             </div>
                         </a>
                         {userIsLogged && 
                             <Button
                                 type="primary" 
-                                className={`button-save ${typeScreen}`} 
+                                className={`button-save ${typeScreen} navigation`} 
                                 size="large" 
                                 icon={<HeartOutlined />}
-                                onClick={() => {actionSaveVideo(snippet, channelTitle)}}
+                                onClick={() => {actionSaveVideo(video.snippet, video.snippet.channelTitle)}}
                             >
                             </Button>
                         }
