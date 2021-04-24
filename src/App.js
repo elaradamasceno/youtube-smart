@@ -78,7 +78,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <ExperienceBar setIsLogged={setIsLogged} />
+                <ExperienceBar setIsLogged={isLogged} />
                 <div className="container">
                     <Switch>
                         <Route exact path="/">

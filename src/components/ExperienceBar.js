@@ -11,8 +11,7 @@ export function ExperienceBar({setIsLogged}){
     let nameUser = '';
 
     function verifyIsLogin(){
-        nameUser = localStorage.getItem('userName') !== null ? true : false;
-                
+        nameUser = localStorage.getItem('userName') !== null ? true : false;      
         setUserLogged(nameUser !== false ? true : false);
     }
 
