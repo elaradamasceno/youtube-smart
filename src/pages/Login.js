@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
-import { Form, Input, Button} from 'antd';
+import { Steps, Form, Input, Button} from 'antd';
 import { Keyboard } from  '../components/Keyboard';
 import '../styles/components/Login.css';
 
@@ -14,25 +14,30 @@ export function Login({ verifyIsLogged }){
     const [valueName, setName] = useState('');
     const [valuePassword, setPassword] = useState('');
 
+    const [currentStep, setCurrentStep] = useState(0);
+    const { Step } = Steps;
+
+
     function fieldFocus(id){
         setVisibleKeyboard(true);
         fieldId = id;
     }
 
     function getLetters(data){
-        let element = document.getElementById(`basic_${fieldId}`);
+        const fieldsId = ['name', 'mail', 'password'];
+        let element = document.getElementById(`${fieldsId[currentStep]}`);
 
-        if(fieldId === 'name'){
+        if(fieldsId[currentStep] === 'name'){
             let value = element.value + data;
             setName(value);
         }
 
-        if(fieldId === 'mail'){
+        if(fieldsId[currentStep] === 'mail'){
             let value = element.value + data;
             setMail(value);
         }
 
-        if(fieldId === 'password'){
+        if(fieldsId[currentStep] === 'password'){
             let value = element.value + data;
             setPassword(value);
         }
@@ -62,6 +67,10 @@ export function Login({ verifyIsLogged }){
         verifyIsLogged(true);
     }
 
+    function changeStep(){
+
+    }
+
     useEffect((e) => {}, [fieldId]);
     // useEffect(() => { document.getElementById('basic_name').focus(); }, []);
 
@@ -71,81 +80,59 @@ export function Login({ verifyIsLogged }){
             <h2>Faça o login para ter a melhor experiência</h2>
 
             <div className="content-login">
-                <Form
-                    name="basic"
-                    initialValues={{ remember: true }}
-                    autoComplete="off"
-                    onSubmitCapture={ () => { onSubmit()} }
-                    fields={[
-                        {
-                            name: ["name"],
-                            value: valueName,
-                        },
-                        {
-                            name: ["mail"],
-                            value: valueMail,
-                        },
-                        {
-                            name: ["password"],
-                            value: valuePassword,
-                        },
-                    ]}
-                >
-                    <Form.Item
-                        id="name"
-                        label="Nome"
-                        name="name"
-                        size="middle"
-                        defaultValue={valueName}
-                        value={valueName}
-                        rules={[{ required: true, message: 'Por favor, informe seu nome!' }]}
-                        onFocus={() => { fieldFocus('name')}}
-                        onBlur={() => { fieldFocus('name')}}
-                    >   
-                        <Input className="navigation" />
-                    </Form.Item>
+                <div>
+                    <Steps current={currentStep} onChange={changeStep}>
+                        <Step />
+                        <Step />
+                        <Step />
+                    </Steps>
 
-                    <Form.Item
-                        id="mail"
-                        label="E-mail"
-                        name="mail"
-                        size="middle"
-                        value={valueMail}
-                        rules={[{ required: true, message: 'Por favor, informe seu e-mail!' }]}
-                        onFocus={() => { fieldFocus('mail')}}
-                        onBlur={() => { fieldFocus('mail')}}
-                    >
-                        <Input disabled={valueName !== "" ? false : true} className="navigation" />
-                    </Form.Item>
+                    { currentStep === 0 &&  
+                        <Input 
+                            className="navigation"
+                            id="name"  
+                            size="large" 
+                            placeholder="Nome" 
+                            defaultValue={valueName}
+                            value={valueName}
+                        />
+                    }
 
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        size="middle"
-                        value={valuePassword}
-                        rules={[{ required: true, message: 'Por favor, informe sua senha' }]}
-                        onFocus={() => { fieldFocus('password')}}
-                    >
-                        <Input disabled={valueName !== "" && valueMail !== "" ? false : true} type="password" className="navigation" />
-                    </Form.Item>
+                    {currentStep === 1 && 
+                        <Input 
+                            className="navigation"
+                            id="mail"  
+                            size="large" 
+                            placeholder="E-mail" 
+                            defaultValue={valueMail}
+                            value={valueMail}
+                        />
+                    }
 
-                    <Form.Item>
-                        <div className="buttons-login">
-                            <Button 
-                                id="btn-login-submit" 
-                                className="navigation" 
-                                type="primary" 
-                                htmlType="submit"
-                            >
-                                Entrar
-                            </Button>
-                        </div>
-                    </Form.Item>
-                </Form>
-                { 
-                    visibleKeyboard &&
-                    <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
-                }  
+                    {currentStep === 2 && 
+                        <Input 
+                            type="password"
+                            className="navigation"
+                            id="password"  
+                            size="large" 
+                            placeholder="Senha" 
+                            defaultValue={valuePassword}
+                            value={valuePassword}
+                        />
+                    }
+
+                    <div className="button-login">
+                        <Button 
+                            id="btn-login-submit" 
+                            className="navigation" 
+                            type="primary" 
+                        >
+                            {currentStep === 0 || currentStep === 1 ? 'Próximo' : 'Entrar'}
+                        </Button>
+                    </div>
+                </div>
+
+                <Keyboard getLetters={getLetters} clearLetter={clearLetter} typeScreen="login" />
             </div>
         </div>
     )

@@ -27,7 +27,7 @@ export function Search({updateElements}){
     }
 
     function actionButtonSearch(){
-        request()
+        request();
     }
 
     function backToSearch(){
