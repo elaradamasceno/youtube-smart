@@ -88,20 +88,3 @@
 .list-videos .videos.search .info-videos{
     padding: 2rem;
 }
-
-@media(max-width: 1280px){
-    .list-videos{
-        flex-wrap: nowrap;
-    }
-}
-
-@media(max-width: 1920px){
-    .list-videos{
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
-
-    .list-videos .button-save.home{
-        left: -40px;
-    }
-}
