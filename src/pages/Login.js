@@ -115,7 +115,7 @@ export function Login({ verifyIsLogged }){
                         onFocus={() => { fieldFocus('mail')}}
                         onBlur={() => { fieldFocus('mail')}}
                     >
-                        <Input className="navigation" />
+                        <Input disabled={valueName !== "" ? false : true} className="navigation" />
                     </Form.Item>
 
                     <Form.Item
@@ -126,7 +126,7 @@ export function Login({ verifyIsLogged }){
                         rules={[{ required: true, message: 'Por favor, informe sua senha' }]}
                         onFocus={() => { fieldFocus('password')}}
                     >
-                        <Input type="password" className="navigation" />
+                        <Input disabled={valueName !== "" && valueMail !== "" ? false : true} type="password" className="navigation" />
                     </Form.Item>
 
                     <Form.Item>

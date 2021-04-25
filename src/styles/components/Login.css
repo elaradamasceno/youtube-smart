@@ -33,6 +33,10 @@
     justify-content: flex-end;
 }
 
+.login .content-login .ant-input-disabled{
+    background: transparent;
+}
+
 .ant-form-item-label > label{
     color: var(--gray-silver);
 }
