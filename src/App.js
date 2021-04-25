@@ -19,65 +19,66 @@ function App() {
     }
 
     function updateElements(data){
+        document.removeEventListener('keydown', onKeyDown, true);
         if(data.screen !== 'experience-bar'){
             setTimeout(() => {
-                onKeyDown(1);
+                document.addEventListener('keydown', onKeyDown, true)
             }, 100)
         }
         else {
             setTimeout(() => {
-                onKeyDown();
+                document.addEventListener('keydown', onKeyDown, true)
             }, 100)
         }
     }
 
-    function onKeyDown(nextIndex){
+    function onKeyDown(e){
         let right = 39;
         let left = 37;
 
         setTimeout(() => {
             let elements = document.querySelectorAll('.ant-btn.navigation');
+
+            let index = 1;
+            let totalItems = elements.length;
+            let next = 1;
             
-            document.addEventListener('keydown', (e) => {
-                let index = nextIndex || 1;
-                let totalItems = elements.length;
-                let next = nextIndex || 1;   
-    
-                if(e.keyCode === right || e.keyCode === left){
-                    elements.forEach((element, i) => {
-                        if(element.classList.contains('selected')){
-                            switch(e.keyCode){
-                                case right:
-                                    next += index;
-                                    break;
-                                case left:
-                                    next = index - 1;
-                                    break;
-                            }
+            if(e.keyCode === right || e.keyCode === left){
+                elements.forEach((element, i) => {
+                    if(element.classList.contains('selected')){
+                        switch(e.keyCode){
+                            case right:
+                                next += index;
+                                break;
+                            case left:
+                                next = index - 1;
+                                break;
                         }
-                        index++;
-                    });
-    
-                    index = 1;
-                    if(next > totalItems){
-                        return false;
                     }
-                    else if(next < 1)
-                        return false;
-                    
-                    elements.forEach((element) => {
-                        element.classList.remove('selected');
-                        if(index === next){
-                            element.classList.add('selected');
-                            element.focus();
-                        }
-    
-                        index++;
-                    })
+                    index++;
+                });
+
+                index = 1;
+                if(next > totalItems){
+                    return false;
                 }
-            })
-        }, 200)
+                else if(next < 1)
+                    return false;
+                
+                elements.forEach((element) => {
+                    element.classList.remove('selected');
+                    if(index === next){
+                        element.classList.add('selected');
+                        element.focus();
+                    }
+
+                    index++;
+                })
+            }
+
+        }, 100)
     }
+
 
     return (
         <div className="App">
