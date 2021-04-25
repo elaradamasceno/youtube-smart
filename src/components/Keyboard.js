@@ -10,7 +10,7 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
     let clear = 0;
 
     function clickKeyboard(){
-        let letters = document.querySelectorAll('#keyboard .letters a');
+        let letters = document.querySelectorAll('#keyboard .letters button');
 
         letters.forEach((letter) => { 
             letter.addEventListener("click", (e) => {
