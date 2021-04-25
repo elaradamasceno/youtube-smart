@@ -40,20 +40,20 @@ export function Keyboard({getLetters, clearLetter, typeScreen}){
         <div id="keyboard">
             <div className="letters">
                 { visibleLetters ? allLetters.map((letter, index) => (
-                    <Button className="button-letter navigation" key={index}>{letter}</Button>
+                    <Button className="navigation button-letter" key={index}>{letter}</Button>
                 )) : (
                     otherCharacters.map((character, index) => (
-                        <Button className="button-letter navigation" key={index}>{character}</Button>
+                        <Button className="navigation button-letter" key={index}>{character}</Button>
                 )))}
             </div>
             <div className="buttons">
-                <Button className="buttons-keyboard navigation" type="primary" onClick={actionSpace}>Espaço</Button>
-                <Button className="buttons-keyboard navigation" type="primary" onClick={actionClear}>Limpar</Button>
+                <Button className="navigation buttons-keyboard" type="primary" onClick={actionSpace}>Espaço</Button>
+                <Button className="navigation buttons-keyboard" type="primary" onClick={actionClear}>Limpar</Button>
                 { typeScreen !== 'login' && 
-                    <Button className="buttons-keyboard navigation" type="primary">Pesquisar</Button>
+                    <Button className="navigation buttons-keyboard" type="primary">Pesquisar</Button>
                 }
                 <Button 
-                    className="buttons-keyboard navigation" 
+                    className="navigation buttons-keyboard" 
                     id="special-characters" 
                     type="primary" 
                     shape="circle" 

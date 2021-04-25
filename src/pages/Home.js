@@ -6,7 +6,7 @@ import axios from 'axios';
 import { ListVideos } from '../components/ListVideos';
 import '../styles/components/Home.css';
 
-export function Home(){
+export function Home({updateElements}){
     const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
 
     const [ errorRequest, setErrorRequest ] = useState(false);
@@ -95,14 +95,12 @@ export function Home(){
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
             setItems(result);
         }
+
+        // updateElements({screen: 'home'});
     }
 
-    useEffect(() => {
-        callRequestAPI();
-    },[]);
-
+    useEffect(() => { callRequestAPI(); },[]);
     useEffect(() => {}, [items]);
-
 
     return(
         <div className="home">

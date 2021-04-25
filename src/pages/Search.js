@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { Input, Button } from 'antd';
@@ -9,7 +9,7 @@ import { ListVideos } from '../components/ListVideos';
 
 import '../styles/components/Search.css';
 
-export function Search(){
+export function Search({updateElements}){
     const [ valueSearch, setValueSearch ] = useState('');
     const [ searchIsVisible, setSearchIsVisible ] = useState(true);
     const [ resultSearch, setResultSearch ] = useState(false);
@@ -58,8 +58,7 @@ export function Search(){
                     <div className="content-search">
                         <div className="field-search">
                             <Input 
-                                id="field-search" 
-                                className="navigation" 
+                                id="field-search"  
                                 size="large" 
                                 placeholder="Buscar" 
                                 defaultValue={valueSearch}

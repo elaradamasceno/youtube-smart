@@ -6,7 +6,7 @@ import { Avatar } from './Avatar';
 
 import '../styles/components/ExperienceBar.css';
 
-export function ExperienceBar({setIsLogged}){
+export function ExperienceBar({setIsLogged, updateElements}){
     const [userLogged, setUserLogged] = useState(false);
     let nameUser = '';
 
@@ -19,6 +19,8 @@ export function ExperienceBar({setIsLogged}){
         verifyIsLogin();
         let element = document.querySelector('.i-home');
         element.focus();
+
+        updateElements({screen: 'experience-bar'});
     })
 
     return(
@@ -26,22 +28,22 @@ export function ExperienceBar({setIsLogged}){
             <div>
                 <YoutubeOutlined className="i-youtube" />
 
-                <Link tabIndex="1" to="/" className="ant-btn experience-icons i-home navigation selected">
+                <Link tabIndex="1" to="/" onClick={() => { updateElements({screen: 'home'}); }} className="ant-btn experience-icons i-home navigation selected">
                     <HomeOutlined />
                 </Link>
 
-                <Link to="search" className="ant-btn experience-icons i-search navigation" tabIndex="2">
+                <Link to="search" onClick={() => { updateElements({screen: 'search'}); }}  className="ant-btn experience-icons i-search navigation" tabIndex="2">
                     <SearchOutlined />
                 </Link>
 
-                <Link to="favorites" className="ant-btn experience-icons i-favorites navigation" tabIndex="3">
+                <Link to="favorites" onClick={() => { updateElements(true); }} className="ant-btn experience-icons i-favorites navigation" tabIndex="3">
                     <HeartOutlined />
                 </Link>
 
                 { userLogged ? (
                     <Avatar />
                 ): (
-                    <Link to="Login" className="ant-btn experience-icons i-area-user navigation" tabIndex="4">
+                    <Link to="Login" onClick={() => { updateElements(true); }} className="ant-btn experience-icons i-area-user navigation" tabIndex="4">
                         <UserOutlined />
                     </Link>
                 )}
