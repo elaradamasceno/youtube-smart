@@ -2,6 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+.list-video.userNotLogged{
     gap: 1rem;
 }
 
@@ -45,7 +48,7 @@
 }
 
 .list-videos .button-save{
-    top: -56px;
+    top: -40px;
     left: -302px;
 
     background: var(--gray-silver);
@@ -54,7 +57,7 @@
 
 .list-videos .button-save.home{
     top: 0;
-    left: -44px;
+    left: -50px;
 }
 
 .list-videos .button-save:hover,

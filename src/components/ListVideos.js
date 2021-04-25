@@ -75,7 +75,7 @@ export function ListVideos({ listVideos, typeScreen }){
 
 
     return(
-        <div className="list-videos">
+        <div className={`list-videos ${userIsLogged ? 'userLogged' : 'userNotLogged'}`}>
             { listVideos !== false && listVideos !== undefined && listVideos.map((video, index) => {
                 return (
                     <Fragment key={video.id.playlistId}>
@@ -113,6 +113,7 @@ export function ListVideos({ listVideos, typeScreen }){
                 width={600}
                 onCancel={() => setPlayerVisible(false)}
                 cancelText="Fechar"
+                className="navigation"
             >
                 <PlayerVideo videoId={videoId}/>
             </Modal>
