@@ -32,7 +32,7 @@ export function Home({updateElements}){
         let sports = localStorage.getItem('sports');
         let allItems = [];
 
-        if(music === null && news === null && sports === null){
+        if(music === null || news === null || sports === null){
             channels.forEach((element, index) => {
                 let url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${element.channel}&part=snippet,id&order=date&maxResults=20`;
 
