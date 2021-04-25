@@ -22,12 +22,12 @@ function App() {
         document.removeEventListener('keydown', onKeyDown, true);
         if(data.screen !== 'experience-bar'){
             setTimeout(() => {
-                document.addEventListener('keydown', onKeyDown, true)
+                document.addEventListener('keydown', onKeyDown, true);
             }, 100)
         }
         else {
             setTimeout(() => {
-                document.addEventListener('keydown', onKeyDown, true)
+                document.addEventListener('keydown', onKeyDown, true);
             }, 100)
         }
     }

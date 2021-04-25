@@ -21,7 +21,6 @@ export function Login({ verifyIsLogged }){
 
     function getLetters(data){
         let element = document.getElementById(`basic_${fieldId}`);
-        element.focus();
 
         if(fieldId === 'name'){
             let value = element.value + data;
@@ -64,7 +63,7 @@ export function Login({ verifyIsLogged }){
     }
 
     useEffect((e) => {}, [fieldId]);
-    useEffect(() => { document.getElementById('basic_name').focus(); }, []);
+    // useEffect(() => { document.getElementById('basic_name').focus(); }, []);
 
 
     return(
