@@ -51,7 +51,7 @@ export function Favorites({isLogged}){
                         {savedVideo !== null && savedVideo.length > 0 && savedVideo.map((video, index) => {
                             return(
                                 <Fragment key={index}>
-                                    <a className="video-saved" onClick={() => {showPlayer(video.thumbnails)}} >
+                                    <a className="video-saved navigation" onClick={() => {showPlayer(video.thumbnails)}} >
                                         <p>
                                             <img src={video.thumbnails.medium.url} alt="" />
                                         </p>
@@ -61,7 +61,7 @@ export function Favorites({isLogged}){
                                         </div>
                                     </a>
                                     <Button
-                                        className="delete-video"
+                                        className="delete-video navigation"
                                         type="primary" 
                                         size="large" 
                                         icon={<DeleteOutlined />}
@@ -96,7 +96,7 @@ export function Favorites({isLogged}){
                             <span>Faça login para ver seus favoritos</span>
                         </div>
                         <div className="button-login">
-                            <Button id="redirect-login" type="primary" size="large" onClick={() => { history.push("/Login"); }}>FAZER LOGIN</Button>
+                            <Button id="redirect-login" className="navigation" type="primary" size="large" onClick={() => { history.push("/Login"); }}>FAZER LOGIN</Button>
                         </div>
                     </div>
                 </div>

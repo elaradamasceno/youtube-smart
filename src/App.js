@@ -37,7 +37,7 @@ function App() {
         let left = 37;
 
         setTimeout(() => {
-            let elements = document.querySelectorAll('.ant-btn.navigation');
+            let elements = document.querySelectorAll('.navigation');
 
             let index = 1;
             let totalItems = elements.length;
@@ -99,7 +99,7 @@ function App() {
                         </Route>
 
                         <Route path="/favorites">
-                            <Favorites />
+                            <Favorites updateElements={updateElements} />
                         </Route>
 
                         <Route path="/Login">
