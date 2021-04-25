@@ -84,6 +84,7 @@ export function Search({updateElements}){
                 <div className="result-search">
                     <div>
                         <Button 
+                            className="navigation"
                             id="btn-back-search" 
                             size="large" 
                             type="primary" 
