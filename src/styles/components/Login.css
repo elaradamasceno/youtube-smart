@@ -10,6 +10,12 @@
     font-size: 2rem;
 }
 
+.login .field-required{
+    color: var(--red);
+    font: 0.5rem;
+    font-weight: bold;
+}
+
 .login .button-login{
     width: 100%;
     display: flex;
@@ -34,15 +40,23 @@
     font-weight: bold;
 }
 
-
 .login .buttons-login{
     display: flex;
     justify-content: flex-end;
 }
 
+.ant-steps-item-finish .ant-steps-item-icon,
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon{
     background: var(--red);
     border: none;
+}
+
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+    background: var(--red);
+}
+
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+    background: var(--gray-silver);
 }
 
 .login .ant-steps-icon{
