@@ -1,6 +1,7 @@
 # Application YouTube for SmartTv
 
-A aplicação utiliza a API do YouTube para exibir alguns trilhos na Home como: Música, Notícia e Esportes. Para navegar na aplicação basta utilizar as setas do teclado: "<- ->".
+A aplicação utiliza a API do YouTube para exibir alguns trilhos na Home como: Música, Notícia e Esportes. Para fazer pesquisas de um vídeo específico. Também é possível salvar os videos, acessar a lista de salvos e remover. Para isso deve-se realizar o login na aplicação.
+Para navegar na aplicação basta utilizar as setas do teclado: "<- ->".
 
 Aplicação desenvolvida com React e layout utilizando AntDesign.
 
