@@ -88,3 +88,8 @@
 .list-videos .videos.search .info-videos{
     padding: 2rem;
 }
+
+.ant-modal-footer button:focus{
+    background: var(--red);
+    color: white;
+}

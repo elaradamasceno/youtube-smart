@@ -18,6 +18,10 @@ export function ListVideos({ listVideos, typeScreen }){
         let splitData = data.default.url.split('/');
         setVideoId(splitData[4])
         setPlayerVisible(true);
+
+        setTimeout(() => {
+            document.querySelector('.ant-modal-footer button').focus();
+        }, 100)
     };
 
     function actionSaveVideo(snippet, channelTitle){
@@ -111,7 +115,7 @@ export function ListVideos({ listVideos, typeScreen }){
                 centered
                 visible={isPlayerVisible}
                 width={600}
-                onCancel={() => setPlayerVisible(false)}
+                onCancel={() => { setPlayerVisible(false) }}
                 cancelText="Fechar"
                 className="navigation"
             >

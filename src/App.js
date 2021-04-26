@@ -20,6 +20,7 @@ function App() {
 
     function updateElements(data){
         document.removeEventListener('keydown', onKeyDown, true);
+
         if(data.screen !== 'experience-bar'){
             setTimeout(() => {
                 document.addEventListener('keydown', onKeyDown, true);
@@ -28,7 +29,7 @@ function App() {
         else {
             setTimeout(() => {
                 document.addEventListener('keydown', onKeyDown, true);
-            }, 100)
+            }, 300)
         }
     }
 
