@@ -7,12 +7,12 @@ Aplicação desenvolvida com React e layout utilizando AntDesign.
 
 ## Scripts disponíveis
 
-Para rodar a aplicação, basta executar:
+Para rodar a aplicação, basta baixar as dependências do projeto executando:
 
 ### `npm install`
 
-Irá baixar as dependências do projeto.
-
+Após baixar as dependências é necessário criar um arquivo .env.local com a key (credencial do YouTube): \
+REACT_APP_YOUTUBE_API_KEY="YOUR_KEY"
 
 ### `npm start`
 
