@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './styles/global.css';
 import { ExperienceBar } from './components/ExperienceBar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -33,19 +33,16 @@ function App() {
         let down = 40;
 
         setTimeout(() => {
-            let elementsExperienceBar = document.querySelectorAll('.experience-bar .navigation');
+            let elementsExperienceBar = document.querySelector('.experience-bar');
             let elementsListVideos = document.querySelectorAll('.list-videos');
 
             let active = document.querySelector('.active')
             let elements = active.querySelectorAll('.navigation');
 
-
             let index = 1;
             let totalItems = elements.length;
             let next = 1;
-
-            let indexListVideos = 1;
-            let nextListVideos = 1;
+            let teste = 0;
 
             
             if(e.keyCode === right || e.keyCode === left || e.keyCode === up || e.keyCode === down){
@@ -53,18 +50,49 @@ function App() {
                     if(element.classList.contains('selected')){
                         switch(e.keyCode){
                             case right:
-                                active.classList.remove('active');
-                                elementsListVideos[0].classList.add('active');
-                                next += index;
+                                if(active.classList.contains('experience-bar')){
+                                    active.classList.remove('active');
+                                    elementsListVideos[0].classList.add('active');
+                                }
+                                else{
+                                    next = index + 1 ;
+                                }
                                 break;
                             case left:
-                                next = index - 1;
+                                if(active.classList.contains('list-videos') && active.querySelectorAll('.navigation')[0].classList.contains('selected')){
+                                    active.classList.remove('active');
+                                    elementsExperienceBar.classList.add('active');
+                                }
+                                else{
+                                    next = index - 1;
+                                }
                                 break;
                             case up:
-                                next = index - 1;
+                                if(elementsListVideos.length > 0){
+                                    for(var i = 0; i < elementsListVideos.length; i++){
+                                        teste = i-1
+                                        if( elementsListVideos[i].classList.contains('active') && teste >= 0){
+                                            elementsListVideos[i].classList.remove('active');
+                                            elementsListVideos[teste].classList.add('active');   
+                                            break;                                        
+                                        }
+                                    }
+                                }
                                 break;
                             case down:
-                                next += index;
+                                if(elementsListVideos.length > 0){
+                                    for(var i = 0; i < elementsListVideos.length; i++){
+                                        teste = i+1;
+                                        if(elementsListVideos[i].classList.contains('active') && teste < elementsListVideos.length){
+                                            elementsListVideos[i].classList.remove('active');
+                                            elementsListVideos[teste].classList.add('active');
+
+                                            console.log(teste)
+                                            break;
+                                        }
+                                        
+                                    }
+                                }
                                 break;
                         }
                     }
@@ -77,16 +105,22 @@ function App() {
                 }
                 else if(next < 1)
                     return false;
-                
-                    elements.forEach((element) => {
-                    element.classList.remove('selected');
-                    if(index === next){
-                        element.classList.add('selected');
-                        element.focus();
-                    }
 
-                    index++;
-                });
+                
+                if(elements.length > 0){
+                    active = document.querySelector('.active')
+                    elements = active.querySelectorAll('.navigation');
+
+                    elements.forEach((element) => {
+                        element.classList.remove('selected');
+                        if(index === next){
+                            element.classList.add('selected');
+                            element.focus();            
+                        }
+    
+                        index++;
+                    });
+                }
             }
 
         }, 100)
