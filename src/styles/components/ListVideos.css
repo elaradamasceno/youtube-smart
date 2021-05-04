@@ -39,7 +39,7 @@
 
 .list-videos .videos.home:hover,
 .list-videos .videos.home:focus{
-    box-shadow: 0px 0px 6px #ff0000e0;
+    box-shadow: 8px 8px 10px #ff0000e0;
 }
 
 .list-videos .videos p img{

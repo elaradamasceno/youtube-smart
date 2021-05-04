@@ -24,7 +24,7 @@ export function ExperienceBar({setIsLogged, updateElements}){
     })
 
     return(
-        <div className="experience-bar" id="experience-bar">
+        <div className="experience-bar active" id="experience-bar">
             <div>
                 <YoutubeOutlined className="i-youtube" />
 

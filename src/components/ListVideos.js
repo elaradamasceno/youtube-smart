@@ -26,6 +26,7 @@ export function ListVideos({ listVideos, typeScreen }){
 
     function actionSaveVideo(snippet, channelTitle){
         let allVideos = [];
+        // alterar para switch case
         if(channelTitle === 'Music'){
             savedTrilhoMusic.push(snippet);
 

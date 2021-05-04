@@ -95,8 +95,6 @@ export function Home({updateElements}){
             result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
             setItems(result);
         }
-
-        // updateElements({screen: 'home'});
     }
 
     useEffect(() => { callRequestAPI(); },[]);
@@ -110,9 +108,9 @@ export function Home({updateElements}){
                         <h2>{element.title}</h2>
                         <div className="content-videos">
                             { items.length !== 0 && <ListVideos className="navigation" listVideos={items[index].data} typeScreen="home" /> }
-                            <Button className="btn-music navigation" onClick={() => actionMoreItems(index, element)}>
+                            {/* <Button className="btn-music navigation" onClick={() => actionMoreItems(index, element)}>
                                 { visibleAllVideos ? ( <ArrowUpOutlined /> ) : ( <ArrowDownOutlined /> )}
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
                 )

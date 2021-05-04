@@ -21,38 +21,50 @@ function App() {
     function updateElements(data){
         document.removeEventListener('keydown', onKeyDown, true);
 
-        if(data.screen !== 'experience-bar'){
-            setTimeout(() => {
-                document.addEventListener('keydown', onKeyDown, true);
-            }, 100)
-        }
-        else {
-            setTimeout(() => {
-                document.addEventListener('keydown', onKeyDown, true);
-            }, 300)
-        }
+        setTimeout(() => {
+            document.addEventListener('keydown', onKeyDown, true);
+        }, data.screen !== 'experience-bar' ? 100 : 300);
     }
 
     function onKeyDown(e){
         let right = 39;
         let left = 37;
+        let up =38;
+        let down = 40;
 
         setTimeout(() => {
-            let elements = document.querySelectorAll('.navigation');
+            let elementsExperienceBar = document.querySelectorAll('.experience-bar .navigation');
+            let elementsListVideos = document.querySelectorAll('.list-videos');
+
+            let active = document.querySelector('.active')
+            let elements = active.querySelectorAll('.navigation');
+
 
             let index = 1;
             let totalItems = elements.length;
             let next = 1;
+
+            let indexListVideos = 1;
+            let nextListVideos = 1;
+
             
-            if(e.keyCode === right || e.keyCode === left){
+            if(e.keyCode === right || e.keyCode === left || e.keyCode === up || e.keyCode === down){
                 elements.forEach((element, i) => {
                     if(element.classList.contains('selected')){
                         switch(e.keyCode){
                             case right:
+                                active.classList.remove('active');
+                                elementsListVideos[0].classList.add('active');
                                 next += index;
                                 break;
                             case left:
                                 next = index - 1;
+                                break;
+                            case up:
+                                next = index - 1;
+                                break;
+                            case down:
+                                next += index;
                                 break;
                         }
                     }
@@ -66,7 +78,7 @@ function App() {
                 else if(next < 1)
                     return false;
                 
-                elements.forEach((element) => {
+                    elements.forEach((element) => {
                     element.classList.remove('selected');
                     if(index === next){
                         element.classList.add('selected');
@@ -74,7 +86,7 @@ function App() {
                     }
 
                     index++;
-                })
+                });
             }
 
         }, 100)
