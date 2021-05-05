@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+// import { Button } from 'antd';
+// import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
 import { ListVideos } from '../components/ListVideos';
@@ -9,10 +9,9 @@ import '../styles/components/Home.css';
 export function Home({updateElements}){
     const YOUTUBE_API_KEY =  process.env.REACT_APP_YOUTUBE_API_KEY;
 
-    const [ errorRequest, setErrorRequest ] = useState(false);
     const [ resultAPI, setResultAPI ] = useState([]);
     const [ items, setItems ] = useState([]);
-    const [ visibleAllVideos, setVisibleAllVideos ] = useState(false);
+    // const [ visibleAllVideos, setVisibleAllVideos ] = useState(false);
 
     const resultRequest = [];
 
@@ -82,22 +81,25 @@ export function Home({updateElements}){
         }
     }
 
-    function actionMoreItems(index, element){
-        setVisibleAllVideos(!visibleAllVideos);
-        let elementType = [element.type];
-        let result = []
+    // function actionMoreItems(index, element){
+    //     setVisibleAllVideos(!visibleAllVideos);
+    //     let elementType = [element.type];
+    //     let result = []
 
-        if(items[index].data.length === 4){
-            result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items}) : i), []);
-            setItems(result);
-        }
-        else{
-            result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
-            setItems(result);
-        }
-    }
+    //     if(items[index].data.length === 4){
+    //         result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items}) : i), []);
+    //         setItems(result);
+    //     }
+    //     else{
+    //         result = items.reduce((acc, i) => acc.concat(elementType.includes(i.type) ? Object.assign(i, { data: element.data.items.slice(0, 4)}) : i), []);
+    //         setItems(result);
+    //     }
+    // }
 
-    useEffect(() => { callRequestAPI(); },[]);
+    useEffect(() => { 
+        updateElements({screen: 'list-videos'})
+        callRequestAPI(); 
+    },[]);
     useEffect(() => {}, [items]);
 
     return(

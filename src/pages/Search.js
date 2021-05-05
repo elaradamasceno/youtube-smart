@@ -50,6 +50,10 @@ export function Search({updateElements}){
         })
     }
 
+    useEffect(() => {
+        updateElements({screen: 'letters'})
+    }, [])
+
     return(
         <div className="search">
             { searchIsVisible ? (

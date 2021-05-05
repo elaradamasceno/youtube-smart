@@ -7,7 +7,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { PlayerVideo } from '../components/PlayerVideo';
 import '../styles/components/Favorites.css';
 
-export function Favorites({isLogged}){
+export function Favorites({updateElements}){
     const [ isPlayerVisible, setPlayerVisible ] = useState(false);
     const [userLogged, setUserLogged] = useState(false);
     const [ savedVideo, setSavedVideo ] = useState([]);
@@ -38,6 +38,7 @@ export function Favorites({isLogged}){
     };
 
     useEffect(() => {
+        updateElements({screen: 'button-login'})
         verifySavedVideo();
         verifyIsLogged();
     }, []);

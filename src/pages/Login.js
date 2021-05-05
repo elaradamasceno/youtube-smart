@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
-import { Steps, Form, Input, Button} from 'antd';
+import { Steps, Input, Button} from 'antd';
 import { Keyboard } from  '../components/Keyboard';
 import '../styles/components/Login.css';
 
 let current = 0;
-export function Login({ verifyIsLogged }){
+export function Login({ verifyIsLogged, updateElements }){
     const history = useHistory();
     const [valueMail, setMail] = useState('');
     const [valueName, setName] = useState('');
@@ -85,6 +85,10 @@ export function Login({ verifyIsLogged }){
             }
         }
     }
+
+    useEffect(() => {
+        updateElements({screen: 'content-login'})
+    }, [])
 
 
     return(

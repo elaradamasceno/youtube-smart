@@ -13,12 +13,15 @@ import { Login } from './pages/Login';
 
 function App() {
     const [ isLogged, setIsLogged ] = useState(false);
+    let idElement = '';
 
     function verifyIsLogged(data){
         setIsLogged(data)
     }
 
     function updateElements(data){
+        idElement = data.screen;
+        console.log('idElement ', idElement)
         document.removeEventListener('keydown', onKeyDown, true);
 
         setTimeout(() => {
@@ -34,7 +37,7 @@ function App() {
 
         setTimeout(() => {
             let elementsExperienceBar = document.querySelector('.experience-bar');
-            let elementsListVideos = document.querySelectorAll('.list-videos');
+            let elementsListVideos = document.querySelectorAll(`.${idElement}`);
 
             let active = document.querySelector('.active')
             let elements = active.querySelectorAll('.navigation');
@@ -86,8 +89,6 @@ function App() {
                                         if(elementsListVideos[i].classList.contains('active') && teste < elementsListVideos.length){
                                             elementsListVideos[i].classList.remove('active');
                                             elementsListVideos[teste].classList.add('active');
-
-                                            console.log(teste)
                                             break;
                                         }
                                         
@@ -150,7 +151,7 @@ function App() {
                         </Route>
 
                         <Route path="/Login">
-                            <Login verifyIsLogged={verifyIsLogged} />
+                            <Login verifyIsLogged={verifyIsLogged} updateElements={updateElements} />
                         </Route>
 
                         <Route>
